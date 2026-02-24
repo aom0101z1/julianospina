@@ -63,12 +63,13 @@
         /* Header matching durguez.com */
         .site-header {
             background: var(--color-white);
-            padding: 30px 20px;
+            padding: 20px 20px 16px;
             text-align: center;
             margin-bottom: 40px;
             border-radius: 0 0 20px 20px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
             animation: fadeInDown 0.8s ease-out;
+            overflow: hidden;
         }
 
         .site-title {
@@ -692,21 +693,9 @@
     <div class="decoration decoration-1"></div>
     <div class="decoration decoration-2"></div>
 
-    <!-- Header matching durguez.com style -->
+    <!-- Header with Countdown Timer -->
     <header class="site-header">
-        <h1 class="site-title">DURGUEZ</h1>
-        <div class="site-underline">
-            <span class="bar-red"></span>
-            <span class="bar-yellow"></span>
-            <span class="bar-blue"></span>
-        </div>
-        <p class="site-tagline">DIOS<span>·</span>FAMILIA<span>·</span>PATRIA<span>·</span>EMPRESA<span>·</span>SEGURIDAD</p>
-    </header>
-
-    <div class="container">
-
-        <!-- Countdown Timer -->
-        <div id="countdownSection" class="countdown-section">
+        <div id="countdownSection" class="countdown-section" style="margin-bottom: 16px; border-radius: 12px;">
             <div id="countdownEventName" class="countdown-title">Gran Reunión Virtual con Durguez Espinosa</div>
             <div class="countdown-subtitle">Faltan para el evento:</div>
 
@@ -742,11 +731,15 @@
                 Agregar a Google Calendar
             </a>
         </div>
-
-        <!-- Event Banner -->
-        <div class="event-banner">
-            <img src="evento-banner.jpg" alt="Reunión Masiva Virtual - Martes 03 Marzo - Durguez y Julián Ospina - Unidos Cámara CD 101">
+        <div class="site-underline">
+            <span class="bar-red"></span>
+            <span class="bar-yellow"></span>
+            <span class="bar-blue"></span>
         </div>
+        <p class="site-tagline">DIOS<span>·</span>FAMILIA<span>·</span>PATRIA<span>·</span>EMPRESA<span>·</span>SEGURIDAD</p>
+    </header>
+
+    <div class="container">
 
         <!-- Step 1: Code Verification -->
         <div id="step1" class="card">
@@ -923,6 +916,11 @@
                     </button>
                 </div>
             </form>
+        </div>
+
+        <!-- Event Banner -->
+        <div class="event-banner">
+            <img src="evento-banner.jpg" alt="Reunión Masiva Virtual - Martes 03 Marzo - Durguez y Julián Ospina - Unidos Cámara CD 101">
         </div>
 
         <div class="footer">
