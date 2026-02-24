@@ -737,19 +737,19 @@
             </div>
 
             <h1 class="card-title">Bienvenido</h1>
-            <p class="card-subtitle">Ingresa tu código de invitación para continuar</p>
+            <p class="card-subtitle">Ingresa el número de tu líder para continuar</p>
 
             <div id="step1-message" class="hidden"></div>
 
             <form id="codeForm">
                 <div class="form-group">
-                    <label class="form-label" for="leaderCode">Código de Invitación</label>
-                    <input 
-                        type="text" 
-                        id="leaderCode" 
-                        name="leaderCode" 
-                        class="form-input" 
-                        placeholder="Ej: CD101-0001"
+                    <label class="form-label" for="leaderCode">Número de tu Líder</label>
+                    <input
+                        type="tel"
+                        id="leaderCode"
+                        name="leaderCode"
+                        class="form-input"
+                        placeholder="Ej: 3001234567"
                         autocomplete="off"
                         required
                     >
@@ -777,19 +777,19 @@
             </div>
 
             <h1 class="card-title">Re-ingreso</h1>
-            <p class="card-subtitle">Ingresa tu código y cédula para acceder nuevamente</p>
+            <p class="card-subtitle">Ingresa el número de tu líder y tu cédula para acceder nuevamente</p>
 
             <div id="step1b-message" class="hidden"></div>
 
             <form id="reentryForm">
                 <div class="form-group">
-                    <label class="form-label" for="reentryCode">Código de Invitación</label>
-                    <input 
-                        type="text" 
-                        id="reentryCode" 
-                        name="reentryCode" 
-                        class="form-input" 
-                        placeholder="Ej: CD101-0001"
+                    <label class="form-label" for="reentryCode">Número de tu Líder</label>
+                    <input
+                        type="tel"
+                        id="reentryCode"
+                        name="reentryCode"
+                        class="form-input"
+                        placeholder="Ej: 3001234567"
                         autocomplete="off"
                         required
                     >
@@ -1176,19 +1176,22 @@
         // Cambio realizado: 2026-02-03
         // =====================================================
         async function validateLeaderCode(code) {
-            const upperCode = code?.toUpperCase().trim();
-            if (!upperCode) return null;
+            const phone = code?.trim();
+            if (!phone) return null;
+
+            // Validate phone format (Colombian mobile: 10 digits, starts with 3)
+            if (!/^3[0-9]{9}$/.test(phone)) return null;
 
             try {
                 // Busca SOLO el código específico ingresado, no todos los líderes
                 const q = query(
                     collection(db, LIDERES_COLLECTION),
-                    where('code', '==', upperCode),
+                    where('code', '==', phone),
                     where('active', '==', true)
                 );
                 const snapshot = await getDocs(q);
                 if (!snapshot.empty) {
-                    return upperCode;
+                    return phone;
                 }
             } catch (error) {
                 console.error('Error validating code:', error);
@@ -1273,7 +1276,7 @@
                 const validCode = await validateLeaderCode(code);
 
                 if (!validCode) {
-                    showMessage('step1-message', '❌ Código inválido. Verifica e intenta nuevamente.', 'error');
+                    showMessage('step1-message', '❌ Número no encontrado. Verifica e intenta nuevamente.', 'error');
                     codeInput.classList.add('error');
                     setTimeout(() => codeInput.classList.remove('error'), 500);
                     return;
@@ -1320,7 +1323,7 @@
                 // Validate code
                 const validCode = await validateLeaderCode(code);
                 if (!validCode) {
-                    showMessage('step1b-message', '❌ Código inválido.', 'error');
+                    showMessage('step1b-message', '❌ Número no encontrado.', 'error');
                     return;
                 }
 
@@ -1414,13 +1417,13 @@
             }
         });
 
-        // Format code input
+        // Format phone input - only allow digits
         document.getElementById('leaderCode').addEventListener('input', function(e) {
-            this.value = this.value.toUpperCase();
+            this.value = this.value.replace(/\D/g, '').slice(0, 10);
         });
 
         document.getElementById('reentryCode').addEventListener('input', function(e) {
-            this.value = this.value.toUpperCase();
+            this.value = this.value.replace(/\D/g, '').slice(0, 10);
         });
     </script>
 </body>

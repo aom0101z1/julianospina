@@ -1061,75 +1061,28 @@
 
             <!-- Tab: Gestión de Líderes -->
             <div id="tab-lideres" class="tab-content">
-                <!-- Batch Code Generator -->
-                <div class="code-generator" style="margin-bottom: 20px; background: linear-gradient(135deg, #1a237e 0%, #283593 100%); border: 2px solid #3949ab;">
-                    <h3 style="color: #fff;">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 8px;">
-                            <rect x="3" y="3" width="7" height="7"/>
-                            <rect x="14" y="3" width="7" height="7"/>
-                            <rect x="14" y="14" width="7" height="7"/>
-                            <rect x="3" y="14" width="7" height="7"/>
-                        </svg>
-                        Generación Masiva de Códigos CD101
-                    </h3>
-                    <p style="color: rgba(255,255,255,0.8); margin-bottom: 15px; font-size: 14px;">
-                        Genera múltiples códigos de una vez. Formato: <strong>CD101-0001</strong>, <strong>CD101-002</strong>, etc.
-                        Los códigos quedan "Sin asignar" y puedes editarlos después para agregar los datos del líder.
-                    </p>
-                    <div class="form-row" style="align-items: flex-end;">
-                        <div class="control-group" style="flex: 0 0 200px;">
-                            <label class="control-label" style="color: rgba(255,255,255,0.9);">Cantidad de códigos</label>
-                            <input type="number" id="batchQuantity" class="control-input" min="1" max="500" value="10" style="font-size: 18px; font-weight: bold; text-align: center;">
-                        </div>
-                        <div class="control-group" style="flex: 1;">
-                            <button type="button" class="btn" onclick="handleBatchGeneration()" style="background: #ffeb3b; color: #1a237e; font-weight: bold; padding: 12px 24px;">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                                </svg>
-                                Generar Códigos Masivamente
-                            </button>
-                        </div>
-                    </div>
-                    <div id="batchProgressContainer" class="hidden" style="margin-top: 15px;">
-                        <div style="background: rgba(255,255,255,0.2); border-radius: 10px; overflow: hidden; height: 24px;">
-                            <div id="batchProgressBar" style="background: #4caf50; height: 100%; width: 0%; transition: width 0.3s; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px;">
-                                0%
-                            </div>
-                        </div>
-                        <p id="batchProgressText" style="color: rgba(255,255,255,0.8); margin-top: 8px; font-size: 13px;">Generando códigos...</p>
-                    </div>
-                    <div id="batchResultContainer" class="hidden" style="margin-top: 15px; background: rgba(76, 175, 80, 0.2); padding: 15px; border-radius: 8px; border: 1px solid #4caf50;">
-                        <p style="color: #a5d6a7; font-weight: bold; margin-bottom: 8px;">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 5px;">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            <span id="batchResultText">Códigos generados exitosamente</span>
-                        </p>
-                        <p style="color: rgba(255,255,255,0.7); font-size: 13px;">Desde <strong id="batchFirstCode">-</strong> hasta <strong id="batchLastCode">-</strong></p>
-                    </div>
-                </div>
-
-                <!-- Single Code Generator -->
+                <!-- Crear Líder -->
                 <div class="code-generator">
-                    <h3>Crear Líder Individual con Datos</h3>
+                    <h3>Crear Nuevo Líder</h3>
                     <p style="color: rgba(255,255,255,0.7); margin-bottom: 15px; font-size: 14px;">
-                        Usa esta opción si quieres crear un código y asignar los datos del líder al mismo tiempo.
+                        El número de teléfono del líder será su código de invitación. Los seguidores usarán este número para registrarse.
                     </p>
                     <form id="leaderForm">
                         <div class="form-row">
                             <div class="control-group">
-                                <label class="control-label">Nombre del Líder *</label>
-                                <input type="text" id="leaderNombre" class="control-input" placeholder="Nombre completo" required>
+                                <label class="control-label">Teléfono (será el código) *</label>
+                                <input type="tel" id="leaderTelefono" class="control-input" placeholder="Ej: 3001234567" required
+                                    pattern="3[0-9]{9}" title="Debe ser un celular colombiano: 10 dígitos, empieza por 3">
                             </div>
                             <div class="control-group">
-                                <label class="control-label">Cédula *</label>
-                                <input type="text" id="leaderCedula" class="control-input" placeholder="Número de cédula" required>
+                                <label class="control-label">Nombre del Líder *</label>
+                                <input type="text" id="leaderNombre" class="control-input" placeholder="Nombre completo" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="control-group">
-                                <label class="control-label">Teléfono *</label>
-                                <input type="tel" id="leaderTelefono" class="control-input" placeholder="Número de teléfono" required>
+                                <label class="control-label">Cédula</label>
+                                <input type="text" id="leaderCedula" class="control-input" placeholder="Número de cédula (opcional)">
                             </div>
                             <div class="control-group">
                                 <label class="control-label">Email</label>
@@ -1141,15 +1094,9 @@
                                 <line x1="12" y1="5" x2="12" y2="19"/>
                                 <line x1="5" y1="12" x2="19" y2="12"/>
                             </svg>
-                            Crear Líder con Código
+                            Crear Líder
                         </button>
                     </form>
-
-                    <div id="generatedCodeContainer" class="generated-code hidden">
-                        <span>Código generado:</span>
-                        <span class="code" id="generatedCode"></span>
-                        <button class="btn btn-secondary btn-sm" onclick="copyCode()">Copiar</button>
-                    </div>
                 </div>
 
                 <!-- Leaders Table -->
@@ -1172,10 +1119,9 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Código</th>
+                                    <th>Código (Teléfono)</th>
                                     <th>Nombre</th>
                                     <th>Cédula</th>
-                                    <th>Teléfono</th>
                                     <th>Email</th>
                                     <th>Registros</th>
                                     <th>Estado</th>
@@ -1194,7 +1140,7 @@
                             <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
                             <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                         </svg>
-                        <p>No hay líderes registrados. Genera el primer código arriba.</p>
+                        <p>No hay líderes registrados. Crea el primero arriba.</p>
                     </div>
                 </div>
             </div>
@@ -1203,7 +1149,7 @@
             <div id="tab-configuracion" class="tab-content">
                 <div class="config-section">
                     <h3 class="config-title">Configuración del Formulario de Registro</h3>
-                    <p class="config-description">Selecciona qué campos deseas solicitar a los asistentes. Si desactivas todos los campos, los usuarios solo ingresarán el código de invitación y serán redirigidos directamente al evento.</p>
+                    <p class="config-description">Selecciona qué campos deseas solicitar a los asistentes. Si desactivas todos los campos, los usuarios solo ingresarán el número de su líder y serán redirigidos directamente al evento.</p>
 
                     <div class="config-card">
                         <h4>Campos del Formulario</h4>
@@ -1357,8 +1303,8 @@
             <form id="editLeaderForm">
                 <input type="hidden" id="editLeaderId">
                 <div class="control-group" style="margin-bottom: 15px;">
-                    <label class="control-label">Código</label>
-                    <input type="text" id="editLeaderCode" class="control-input" readonly>
+                    <label class="control-label">Código (Teléfono)</label>
+                    <input type="text" id="editLeaderCode" class="control-input" readonly style="opacity: 0.7; cursor: not-allowed;">
                 </div>
                 <div class="control-group" style="margin-bottom: 15px;">
                     <label class="control-label">Nombre</label>
@@ -1367,10 +1313,6 @@
                 <div class="control-group" style="margin-bottom: 15px;">
                     <label class="control-label">Cédula</label>
                     <input type="text" id="editLeaderCedula" class="control-input" placeholder="Número de cédula">
-                </div>
-                <div class="control-group" style="margin-bottom: 15px;">
-                    <label class="control-label">Teléfono</label>
-                    <input type="tel" id="editLeaderTelefono" class="control-input" placeholder="Número de teléfono">
                 </div>
                 <div class="control-group" style="margin-bottom: 15px;">
                     <label class="control-label">Email</label>
@@ -1457,73 +1399,19 @@
             }
         }
 
-        // Generate next sequential code (CD101-0001, CD101-002, etc.)
-        async function generateUniqueCode() {
-            try {
-                // Get all existing codes to find the highest number
-                const snapshot = await getDocs(collection(db, LIDERES_COLLECTION));
-                let maxNumber = 0; // Start at 0, so first code is CD101-0001
-
-                snapshot.forEach(doc => {
-                    const code = doc.data().code;
-                    if (code && code.startsWith('CD101-')) {
-                        const num = parseInt(code.replace('CD101-', ''));
-                        if (!isNaN(num) && num > maxNumber) {
-                            maxNumber = num;
-                        }
-                    }
-                });
-
-                // Format with leading zeros (001, 002, etc.)
-                const nextNum = (maxNumber + 1).toString().padStart(4, '0');
-                return 'CD101-' + nextNum;
-            } catch (error) {
-                console.error('Error generating code:', error);
-                return 'CD101-0001';
-            }
+        // Validate phone number (Colombian mobile: 10 digits, starts with 3)
+        function isValidPhone(phone) {
+            return /^3[0-9]{9}$/.test(phone);
         }
 
-        // Generate multiple codes at once (batch creation)
-        async function generateBatchCodes(quantity) {
-            try {
-                const snapshot = await getDocs(collection(db, LIDERES_COLLECTION));
-                let maxNumber = 0;
-
-                snapshot.forEach(doc => {
-                    const code = doc.data().code;
-                    if (code && code.startsWith('CD101-')) {
-                        const num = parseInt(code.replace('CD101-', ''));
-                        if (!isNaN(num) && num > maxNumber) {
-                            maxNumber = num;
-                        }
-                    }
-                });
-
-                const codes = [];
-                const now = new Date();
-
-                for (let i = 1; i <= quantity; i++) {
-                    const nextNum = (maxNumber + i).toString().padStart(4, '0');
-                    const code = 'CD101-' + nextNum;
-
-                    await addDoc(collection(db, LIDERES_COLLECTION), {
-                        code: code,
-                        nombre: '',
-                        cedula: '',
-                        telefono: '',
-                        email: '',
-                        active: true,
-                        createdAt: serverTimestamp()
-                    });
-
-                    codes.push(code);
-                }
-
-                return codes;
-            } catch (error) {
-                console.error('Error generating batch codes:', error);
-                throw error;
-            }
+        // Check if phone already exists as a leader code
+        async function phoneExistsAsLeader(phone) {
+            const q = query(
+                collection(db, LIDERES_COLLECTION),
+                where('code', '==', phone)
+            );
+            const snapshot = await getDocs(q);
+            return !snapshot.empty;
         }
 
         // Auth state observer
@@ -1655,7 +1543,7 @@
 
             const previewEl = document.getElementById('activeFieldsPreview');
             if (fields.length === 0) {
-                previewEl.textContent = 'Ninguno (solo código de invitación)';
+                previewEl.textContent = 'Ninguno (solo número del líder)';
             } else {
                 previewEl.textContent = fields.join(', ');
             }
@@ -1899,7 +1787,6 @@
                     <td><span class="badge badge-leader">${leader.code}</span></td>
                     <td>${leader.nombre || '<span style="color: #ff9800; font-style: italic;">Sin asignar</span>'}</td>
                     <td>${leader.cedula || '<span style="color: #999;">-</span>'}</td>
-                    <td>${leader.telefono || '<span style="color: #999;">-</span>'}</td>
                     <td>${leader.email || '-'}</td>
                     <td>${regCounts[leader.code] || 0}</td>
                     <td>
@@ -1987,10 +1874,9 @@
 
             const exportData = leadersData.map((leader, index) => ({
                 '#': index + 1,
-                'Código': leader.code,
+                'Código (Teléfono)': leader.code,
                 'Nombre': leader.nombre || '(Sin asignar)',
                 'Cédula': leader.cedula || '',
-                'Teléfono': leader.telefono || '',
                 'Email': leader.email || '',
                 'Registros': regCounts[leader.code] || 0,
                 'Estado': leader.active !== false ? 'Activo' : 'Inactivo',
@@ -2059,16 +1945,27 @@
         document.getElementById('leaderForm').addEventListener('submit', async (e) => {
             e.preventDefault();
 
+            const telefono = document.getElementById('leaderTelefono').value.trim();
             const nombre = document.getElementById('leaderNombre').value.trim();
             const cedula = document.getElementById('leaderCedula').value.trim();
-            const telefono = document.getElementById('leaderTelefono').value.trim();
             const email = document.getElementById('leaderEmail').value.trim();
 
+            // Validate phone format
+            if (!isValidPhone(telefono)) {
+                alert('El teléfono debe ser un celular colombiano válido: 10 dígitos, empieza por 3.\nEjemplo: 3001234567');
+                return;
+            }
+
             try {
-                const code = await generateUniqueCode();
+                // Check if phone already exists as leader
+                const exists = await phoneExistsAsLeader(telefono);
+                if (exists) {
+                    alert(`Ya existe un líder con el teléfono ${telefono}. Cada número solo puede registrarse una vez.`);
+                    return;
+                }
 
                 await addDoc(collection(db, LIDERES_COLLECTION), {
-                    code,
+                    code: telefono,
                     nombre,
                     cedula,
                     telefono,
@@ -2077,104 +1974,15 @@
                     createdAt: serverTimestamp()
                 });
 
-                // Show generated code
-                document.getElementById('generatedCode').textContent = code;
-                document.getElementById('generatedCodeContainer').classList.remove('hidden');
-
                 // Clear form
                 document.getElementById('leaderForm').reset();
 
-                alert(`Líder creado exitosamente con código: ${code}`);
+                alert(`Líder creado exitosamente.\nSu código de invitación es su teléfono: ${telefono}`);
             } catch (error) {
                 console.error('Error creating leader:', error);
                 alert('Error al crear el líder. Intenta nuevamente.');
             }
         });
-
-        // Copy code to clipboard
-        window.copyCode = function() {
-            const code = document.getElementById('generatedCode').textContent;
-            navigator.clipboard.writeText(code).then(() => {
-                alert('Código copiado al portapapeles');
-            });
-        };
-
-        // Handle batch code generation
-        window.handleBatchGeneration = async function() {
-            const quantity = parseInt(document.getElementById('batchQuantity').value);
-
-            if (isNaN(quantity) || quantity < 1 || quantity > 500) {
-                alert('Por favor ingresa una cantidad entre 1 y 500');
-                return;
-            }
-
-            if (!confirm(`¿Generar ${quantity} códigos CD101?\n\nLos códigos quedarán "Sin asignar" y podrás editarlos después.`)) {
-                return;
-            }
-
-            // Show progress
-            document.getElementById('batchProgressContainer').classList.remove('hidden');
-            document.getElementById('batchResultContainer').classList.add('hidden');
-            document.getElementById('batchProgressBar').style.width = '0%';
-            document.getElementById('batchProgressBar').textContent = '0%';
-            document.getElementById('batchProgressText').textContent = 'Iniciando generación...';
-
-            try {
-                // Get current max number
-                const snapshot = await getDocs(collection(db, LIDERES_COLLECTION));
-                let maxNumber = 0;
-
-                snapshot.forEach(doc => {
-                    const code = doc.data().code;
-                    if (code && code.startsWith('CD101-')) {
-                        const num = parseInt(code.replace('CD101-', ''));
-                        if (!isNaN(num) && num > maxNumber) {
-                            maxNumber = num;
-                        }
-                    }
-                });
-
-                const codes = [];
-                const batchSize = 10; // Process in batches of 10
-
-                for (let i = 1; i <= quantity; i++) {
-                    const nextNum = (maxNumber + i).toString().padStart(4, '0');
-                    const code = 'CD101-' + nextNum;
-
-                    await addDoc(collection(db, LIDERES_COLLECTION), {
-                        code: code,
-                        nombre: '',
-                        cedula: '',
-                        telefono: '',
-                        email: '',
-                        active: true,
-                        createdAt: serverTimestamp()
-                    });
-
-                    codes.push(code);
-
-                    // Update progress every 1 or every batch
-                    if (i % Math.max(1, Math.floor(quantity / 50)) === 0 || i === quantity) {
-                        const percent = Math.round((i / quantity) * 100);
-                        document.getElementById('batchProgressBar').style.width = percent + '%';
-                        document.getElementById('batchProgressBar').textContent = percent + '%';
-                        document.getElementById('batchProgressText').textContent = `Generando... ${i} de ${quantity} códigos`;
-                    }
-                }
-
-                // Show success
-                document.getElementById('batchProgressContainer').classList.add('hidden');
-                document.getElementById('batchResultContainer').classList.remove('hidden');
-                document.getElementById('batchResultText').textContent = `${quantity} códigos generados exitosamente`;
-                document.getElementById('batchFirstCode').textContent = codes[0];
-                document.getElementById('batchLastCode').textContent = codes[codes.length - 1];
-
-            } catch (error) {
-                console.error('Error generating batch codes:', error);
-                document.getElementById('batchProgressContainer').classList.add('hidden');
-                alert('Error al generar códigos. Intenta nuevamente.');
-            }
-        };
 
         // Edit leader
         window.editLeader = function(leaderId) {
@@ -2185,7 +1993,6 @@
             document.getElementById('editLeaderCode').value = leader.code;
             document.getElementById('editLeaderNombre').value = leader.nombre;
             document.getElementById('editLeaderCedula').value = leader.cedula;
-            document.getElementById('editLeaderTelefono').value = leader.telefono;
             document.getElementById('editLeaderEmail').value = leader.email || '';
 
             document.getElementById('editModal').classList.remove('hidden');
@@ -2202,14 +2009,12 @@
             const leaderId = document.getElementById('editLeaderId').value;
             const nombre = document.getElementById('editLeaderNombre').value.trim();
             const cedula = document.getElementById('editLeaderCedula').value.trim();
-            const telefono = document.getElementById('editLeaderTelefono').value.trim();
             const email = document.getElementById('editLeaderEmail').value.trim();
 
             try {
                 await updateDoc(doc(db, LIDERES_COLLECTION, leaderId), {
                     nombre,
                     cedula,
-                    telefono,
                     email
                 });
 
