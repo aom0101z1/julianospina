@@ -34,7 +34,7 @@
             font-family: var(--font-body);
             background: #ffffff;
             min-height: 100vh;
-            color: var(--color-text);
+            color: var(--color-text-dark);
             position: relative;
             overflow-x: hidden;
         }
@@ -64,17 +64,15 @@
         .logo {
             max-width: 280px;
             height: auto;
-            filter: drop-shadow(0 4px 20px rgba(201, 162, 39, 0.2));
+            filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.1));
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(201, 162, 39, 0.15);
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
             border-radius: 20px;
             padding: 40px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3),
-                        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
@@ -84,16 +82,16 @@
             font-weight: 600;
             text-align: center;
             margin-bottom: 8px;
-            color: var(--color-white);
+            color: var(--color-primary);
             letter-spacing: 0.5px;
         }
 
         .card-subtitle {
             text-align: center;
-            color: var(--color-text-muted);
+            color: #666;
             margin-bottom: 32px;
             font-size: 0.95rem;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         .step-indicator {
@@ -107,13 +105,13 @@
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: rgba(201, 162, 39, 0.2);
+            background: #ddd;
             transition: all 0.4s ease;
         }
 
         .step-dot.active {
-            background: var(--color-accent);
-            box-shadow: 0 0 15px rgba(201, 162, 39, 0.5);
+            background: var(--color-primary);
+            box-shadow: 0 0 8px rgba(26, 26, 46, 0.3);
             transform: scale(1.2);
         }
 
@@ -124,8 +122,8 @@
         .form-label {
             display: block;
             font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--color-accent-light);
+            font-weight: 600;
+            color: var(--color-primary);
             margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -136,22 +134,22 @@
             padding: 16px 20px;
             font-size: 1rem;
             font-family: var(--font-body);
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(201, 162, 39, 0.2);
+            background: #f8f9fa;
+            border: 1px solid #d0d0d0;
             border-radius: 12px;
-            color: var(--color-white);
+            color: #303030;
             transition: all 0.3s ease;
             outline: none;
         }
 
         .form-input::placeholder {
-            color: rgba(255, 255, 255, 0.3);
+            color: #aaa;
         }
 
         .form-input:focus {
-            border-color: var(--color-accent);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 20px rgba(201, 162, 39, 0.15);
+            border-color: var(--color-primary);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(26, 26, 46, 0.1);
         }
 
         .form-input.error {
@@ -175,7 +173,7 @@
             width: 24px;
             height: 24px;
             min-width: 24px;
-            border: 2px solid rgba(201, 162, 39, 0.4);
+            border: 2px solid #ccc;
             border-radius: 6px;
             display: flex;
             align-items: center;
@@ -185,14 +183,14 @@
         }
 
         .checkbox-input:checked + .checkbox-custom {
-            background: var(--color-accent);
-            border-color: var(--color-accent);
+            background: var(--color-primary);
+            border-color: var(--color-primary);
         }
 
         .checkbox-custom svg {
             width: 14px;
             height: 14px;
-            stroke: var(--color-primary);
+            stroke: #fff;
             stroke-width: 3;
             opacity: 0;
             transform: scale(0);
@@ -206,19 +204,19 @@
 
         .checkbox-label {
             font-size: 0.9rem;
-            color: var(--color-text-muted);
+            color: #555;
             line-height: 1.5;
         }
 
         .checkbox-label a {
-            color: var(--color-accent);
+            color: var(--color-primary);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.2s ease;
         }
 
         .checkbox-label a:hover {
-            color: var(--color-accent-light);
+            color: #283593;
             text-decoration: underline;
         }
 
@@ -239,14 +237,14 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--color-accent) 0%, #b8941f 100%);
-            color: var(--color-primary);
-            box-shadow: 0 8px 25px rgba(201, 162, 39, 0.3);
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(26, 35, 126, 0.3);
         }
 
         .btn-primary:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(201, 162, 39, 0.4);
+            box-shadow: 0 8px 25px rgba(26, 35, 126, 0.4);
         }
 
         .btn-primary:active:not(:disabled) {
@@ -260,14 +258,14 @@
 
         .btn-secondary {
             background: transparent;
-            border: 1px solid rgba(201, 162, 39, 0.3);
-            color: var(--color-text-muted);
+            border: 1px solid #ccc;
+            color: #666;
             margin-top: 12px;
         }
 
         .btn-secondary:hover {
-            border-color: var(--color-accent);
-            color: var(--color-accent);
+            border-color: var(--color-primary);
+            color: var(--color-primary);
         }
 
         .btn-group {
@@ -292,21 +290,21 @@
         }
 
         .message-error {
-            background: rgba(239, 83, 80, 0.15);
-            border: 1px solid rgba(239, 83, 80, 0.3);
-            color: #ff8a80;
+            background: #fdecea;
+            border: 1px solid #f5c6cb;
+            color: #c62828;
         }
 
         .message-success {
-            background: rgba(76, 175, 80, 0.15);
-            border: 1px solid rgba(76, 175, 80, 0.3);
-            color: #a5d6a7;
+            background: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            color: #2e7d32;
         }
 
         .message-info {
-            background: rgba(201, 162, 39, 0.15);
-            border: 1px solid rgba(201, 162, 39, 0.3);
-            color: var(--color-accent-light);
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            color: #1565c0;
         }
 
         .hidden {
@@ -334,13 +332,13 @@
             content: '';
             flex: 1;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.3), transparent);
+            background: #e0e0e0;
         }
 
         .divider span {
             padding: 0 16px;
             font-size: 0.8rem;
-            color: var(--color-text-muted);
+            color: #999;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -351,14 +349,15 @@
         }
 
         .reentry-link a {
-            color: var(--color-accent);
+            color: #1a237e;
             text-decoration: none;
             font-size: 0.9rem;
+            font-weight: 500;
             transition: color 0.2s ease;
         }
 
         .reentry-link a:hover {
-            color: var(--color-accent-light);
+            color: #283593;
             text-decoration: underline;
         }
 
@@ -366,16 +365,16 @@
             text-align: center;
             margin-top: 40px;
             padding-top: 20px;
-            border-top: 1px solid rgba(201, 162, 39, 0.1);
+            border-top: 1px solid #e0e0e0;
         }
 
         .footer p {
             font-size: 0.8rem;
-            color: var(--color-text-muted);
+            color: #999;
         }
 
         .footer a {
-            color: var(--color-accent);
+            color: #1a237e;
             text-decoration: none;
         }
 
@@ -455,7 +454,7 @@
             border-radius: 0 0 20px 20px;
             padding: 28px 24px 24px;
             text-align: center;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
         }
 
         .countdown-title {
