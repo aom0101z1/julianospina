@@ -984,7 +984,7 @@
 
         // Check if form should be skipped (no fields enabled)
         function shouldSkipForm() {
-            return !formConfig.nombreCompleto && !formConfig.cedula && !formConfig.telefono && !formConfig.email;
+            return formConfig.skipRegistration || (!formConfig.nombreCompleto && !formConfig.cedula && !formConfig.telefono && !formConfig.email);
         }
 
         // DOM Elements
@@ -1079,7 +1079,7 @@
         }
 
         function redirectToZoom() {
-            window.location.href = ZOOM_URL;
+            window.location.href = 'evento.html';
         }
 
         // Event Handlers

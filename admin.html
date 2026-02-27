@@ -1152,9 +1152,24 @@
                     <p class="config-description">Selecciona qué campos deseas solicitar a los asistentes. Si desactivas todos los campos, los usuarios solo ingresarán el número de su líder y serán redirigidos directamente al evento.</p>
 
                     <div class="config-card">
-                        <h4>Campos del Formulario</h4>
+                        <h4>Modo de Acceso</h4>
 
                         <div class="config-toggle-group">
+                            <div class="config-toggle-item" style="background: rgba(201, 162, 39, 0.08); border-radius: 8px; padding: 12px; margin-bottom: 8px;">
+                                <div class="config-toggle-info">
+                                    <span class="config-toggle-label" style="color: var(--color-accent);">Acceso Directo (Sin Registro)</span>
+                                    <span class="config-toggle-desc">Los usuarios pasan directamente al evento sin completar formulario ni aceptar política de datos</span>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="configSkipRegistration">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <h4 style="margin-top: 16px;">Campos del Formulario</h4>
+
+                        <div class="config-toggle-group" id="fieldTogglesGroup">
                             <div class="config-toggle-item">
                                 <div class="config-toggle-info">
                                     <span class="config-toggle-label">Nombre Completo</span>
@@ -1491,11 +1506,13 @@
                 }
 
                 // Update UI toggles
+                document.getElementById('configSkipRegistration').checked = formConfig.skipRegistration === true;
                 document.getElementById('configNombre').checked = formConfig.nombreCompleto !== false;
                 document.getElementById('configCedula').checked = formConfig.cedula !== false;
                 document.getElementById('configTelefono').checked = formConfig.telefono !== false;
                 document.getElementById('configEmail').checked = formConfig.email === true;
 
+                updateFieldTogglesState();
                 updateConfigPreview();
             } catch (error) {
                 console.error('Error loading form config:', error);
@@ -1510,6 +1527,7 @@
 
             try {
                 formConfig = {
+                    skipRegistration: document.getElementById('configSkipRegistration').checked,
                     nombreCompleto: document.getElementById('configNombre').checked,
                     cedula: document.getElementById('configCedula').checked,
                     telefono: document.getElementById('configTelefono').checked,
@@ -1535,13 +1553,20 @@
 
         // Update configuration preview
         function updateConfigPreview() {
+            const skipReg = document.getElementById('configSkipRegistration').checked;
+            const previewEl = document.getElementById('activeFieldsPreview');
+
+            if (skipReg) {
+                previewEl.textContent = 'Acceso directo (sin registro)';
+                return;
+            }
+
             const fields = [];
             if (document.getElementById('configNombre').checked) fields.push('Nombre');
             if (document.getElementById('configCedula').checked) fields.push('Cédula');
             if (document.getElementById('configTelefono').checked) fields.push('Teléfono');
             if (document.getElementById('configEmail').checked) fields.push('Correo');
 
-            const previewEl = document.getElementById('activeFieldsPreview');
             if (fields.length === 0) {
                 previewEl.textContent = 'Ninguno (solo número del líder)';
             } else {
@@ -1549,7 +1574,19 @@
             }
         }
 
+        // Enable/disable field toggles based on skip registration
+        function updateFieldTogglesState() {
+            const skipReg = document.getElementById('configSkipRegistration').checked;
+            const group = document.getElementById('fieldTogglesGroup');
+            group.style.opacity = skipReg ? '0.4' : '1';
+            group.style.pointerEvents = skipReg ? 'none' : 'auto';
+        }
+
         // Add event listeners for config toggles
+        document.getElementById('configSkipRegistration').addEventListener('change', function() {
+            updateFieldTogglesState();
+            updateConfigPreview();
+        });
         ['configNombre', 'configCedula', 'configTelefono', 'configEmail'].forEach(id => {
             document.getElementById(id).addEventListener('change', updateConfigPreview);
         });
