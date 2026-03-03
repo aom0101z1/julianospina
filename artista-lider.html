@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durguez Espinosa - El Artista que se volvió Líder</title>
+    <meta name="description" content="Conoce a Durguez Espinosa: artista plástico, graduado en Bellas Artes, expositor en Barcelona y París, Director de Cultura de Risaralda y creador de la Secretaría de Cultura.">
+    <meta property="og:title" content="Durguez Espinosa - Un Líder con Humanidad">
+    <meta property="og:description" content="Del lienzo al liderazgo. Un artista plástico que transformó la cultura de Risaralda y ahora va al Congreso.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #C8A84E;
+            --gold-light: #E8D5A0;
+            --dark: #1A1A2E;
+            --dark-mid: #16213E;
+            --dark-blue: #0F3460;
+            --accent: #E94560;
+            --white: #FAFAFA;
+            --gray: #B0B0B0;
+            --cream: #F5E6C8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* ---- HERO ---- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-mid) 50%, var(--dark-blue) 100%);
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(200, 168, 78, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(15, 52, 96, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--gold);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.25rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            font-weight: 300;
+            color: var(--gray);
+            line-height: 1.7;
+            max-width: 620px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-cta-btn {
+            display: inline-block;
+            padding: 0.85rem 2rem;
+            background: linear-gradient(135deg, var(--gold), #B8943E);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(200, 168, 78, 0.3);
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .hero-cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(200, 168, 78, 0.5);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 2px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+            margin: 0 auto;
+        }
+
+        /* ---- SECTIONS ---- */
+        .section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            margin-bottom: 4rem;
+            font-weight: 700;
+        }
+
+        /* ---- ARTIST PROFILE ---- */
+        .artist-section {
+            background: linear-gradient(180deg, var(--dark-mid) 0%, var(--dark) 100%);
+        }
+
+        .artist-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .artist-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1.25rem;
+            color: var(--gold-light);
+        }
+
+        .artist-text p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .artist-text p strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .artist-visual {
+            position: relative;
+        }
+
+        .palette-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(200, 168, 78, 0.15);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .palette-row {
+            display: flex;
+            gap: 0.5rem;
+            height: 60px;
+        }
+
+        .palette-row div {
+            flex: 1;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .palette-row div:hover {
+            transform: scaleY(1.15);
+        }
+
+        .palette-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* tropical colors */
+        .p1 { background: #E85D3A; }
+        .p2 { background: #F2A93B; }
+        .p3 { background: #4A9E5C; }
+        .p4 { background: #2E7DA8; }
+        .p5 { background: #8B3FA0; }
+        .p6 { background: #C8A84E; }
+
+        /* ---- JOURNEY TIMELINE ---- */
+        .journey {
+            background: var(--dark);
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gold), var(--dark-blue), var(--accent));
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            background: var(--gold);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0.5rem;
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(200, 168, 78, 0.4);
+        }
+
+        .timeline-content {
+            width: 42%;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(200, 168, 78, 0.15);
+            border-radius: 12px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-4px);
+            border-color: rgba(200, 168, 78, 0.4);
+        }
+
+        .timeline-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* ---- QUOTE ---- */
+        .quote-section {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--dark-mid) 100%);
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .quote-mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            color: var(--gold);
+            line-height: 1;
+            opacity: 0.4;
+        }
+
+        blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 3vw, 1.7rem);
+            font-style: italic;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: -1rem auto 1.5rem;
+            color: var(--white);
+        }
+
+        .quote-author {
+            font-size: 0.9rem;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        /* ---- DIFFERENCE ---- */
+        .difference-section {
+            background: var(--dark);
+        }
+
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .diff-card {
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(200, 168, 78, 0.1);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .diff-card:hover {
+            border-color: var(--gold);
+            background: rgba(200, 168, 78, 0.04);
+        }
+
+        .diff-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .diff-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .diff-card p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* ---- STATS ---- */
+        .stats {
+            background: linear-gradient(135deg, var(--dark-mid) 0%, var(--dark-blue) 100%);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(200, 168, 78, 0.1);
+            border-radius: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+            line-height: 1.5;
+        }
+
+        /* ---- CTA ---- */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-blue) 50%, var(--dark-mid) 100%);
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(200, 168, 78, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-logo {
+            width: 220px;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--gold), #B8943E);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(200, 168, 78, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(200, 168, 78, 0.5);
+        }
+
+        .cta-button svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .cta-secondary {
+            display: block;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .cta-secondary a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* ---- FOOTER ---- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* ---- ANIMATIONS ---- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 2rem;
+            border: 3px solid var(--gold);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            animation: fadeInUp 1s ease 0.1s both;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 768px) {
+            .artist-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .timeline::before {
+                left: 1rem;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(odd) {
+                flex-direction: column;
+                padding-left: 3rem;
+                text-align: left;
+            }
+
+            .timeline-dot {
+                left: 1rem;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .section {
+                padding: 4rem 1.5rem;
+            }
+
+            .cta-logo {
+                width: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Pereira, Risaralda</div>
+            <div class="hero-photo">
+                <img src="Foto%20Durguez%20Espinosa.webp" alt="Durguez Espinosa">
+            </div>
+            <h1>Del lienzo<br>al <span class="highlight">liderazgo</span></h1>
+            <p class="hero-subtitle">
+                Durguez Espinosa no es un político convencional. Es un artista plástico
+                graduado en Bellas Artes, expositor internacional, que llevó su sensibilidad
+                humanista al servicio público y transformó la cultura de todo un departamento.
+            </p>
+            <a href="https://julianospina.com.co/" target="_blank" rel="noopener" class="hero-cta-btn fade-in">
+                Únete a la Gran Reunión Virtual
+            </a>
+        </div>
+        <div class="scroll-indicator"><span></span></div>
+    </section>
+
+    <!-- ============ EL ARTISTA ============ -->
+    <section class="section artist-section">
+        <div class="section-label fade-in">El artista</div>
+        <h2 class="section-title fade-in">Primero fue pintor</h2>
+
+        <div class="artist-grid">
+            <div class="artist-text fade-in">
+                <h3>Una visión humanista del arte</h3>
+                <p>
+                    Durguez Espinosa se graduó de la <strong>Facultad de Bellas Artes de la Universidad Tecnológica de Pereira</strong>.
+                    Ha realizado infinidad de exposiciones, vendiendo obras que hoy embellecen galerías y colecciones privadas.
+                </p>
+                <p>
+                    Su pincelada es inconfundible. Ha recogido <strong>lo mejor del color del trópico</strong>
+                    y lo ha llevado junto con el <strong>diseño precolombino</strong> a muchas salas.
+                    Su enfoque se centra en el diseño y el color, la forma y las sombras,
+                    logrando que sus pinturas sean <strong>tridimensionales</strong>.
+                </p>
+                <p>
+                    Su visión artística es profundamente humanista: respeto por los valores,
+                    amor por lo sublime y lo bello, con una preferencia por el
+                    <strong>Renacimiento y la humanización</strong> en la pintura y la escultura.
+                </p>
+            </div>
+            <div class="artist-visual fade-in">
+                <div class="palette-card">
+                    <div class="palette-row">
+                        <div class="p1"></div>
+                        <div class="p2"></div>
+                        <div class="p3"></div>
+                        <div class="p4"></div>
+                        <div class="p5"></div>
+                        <div class="p6"></div>
+                    </div>
+                    <div class="palette-label">Los colores del trópico + el diseño precolombino</div>
+                    <div class="palette-row" style="height:40px;">
+                        <div style="background:linear-gradient(135deg,#E85D3A,#F2A93B);border-radius:8px;"></div>
+                        <div style="background:linear-gradient(135deg,#4A9E5C,#2E7DA8);border-radius:8px;"></div>
+                        <div style="background:linear-gradient(135deg,#8B3FA0,#C8A84E);border-radius:8px;"></div>
+                    </div>
+                    <div class="palette-label">Forma, sombra y tridimensionalidad</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ QUOTE ============ -->
+    <section class="quote-section fade-in">
+        <div class="quote-mark">"</div>
+        <blockquote>
+            El respeto por los valores, el amor por lo sublime y lo bello...
+            la humanización en la pintura y la escultura es lo que me mueve como artista.
+        </blockquote>
+        <div class="quote-author">— Durguez Espinosa, El Diario</div>
+    </section>
+
+    <!-- ============ JOURNEY ============ -->
+    <section class="section journey">
+        <div class="section-label fade-in">Su camino</div>
+        <h2 class="section-title fade-in">Del arte al servicio público</h2>
+
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">Formación</div>
+                    <h3>Bellas Artes, Universidad Tecnológica de Pereira</h3>
+                    <p>Se graduó como artista plástico. Desarrolló un estilo inconfundible: colores del trópico, diseño precolombino, pintura tridimensional y una profunda visión humanista.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">Carrera artística</div>
+                    <h3>Exposiciones nacionales e internacionales</h3>
+                    <p>Realizó infinidad de exposiciones. Sus obras embellecen galerías y colecciones privadas. Preparó muestras para Barcelona y París, llevando el arte risaraldense al escenario mundial.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">Gestión cultural</div>
+                    <h3>Director de Cultura de Risaralda</h3>
+                    <p>Su compromiso con el arte lo llevó a la gestión pública. Como Director de Cultura del departamento, trabajó para que los artistas risaraldenses tuvieran el apoyo institucional que merecían.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">Asamblea</div>
+                    <h3>Diputado y creador de la Secretaría de Cultura</h3>
+                    <p>Elegido diputado por el Centro Democrático. Coautor de la ordenanza que creó la Secretaría departamental de Cultura de Risaralda, aprobada por unanimidad en la Asamblea.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2026</div>
+                    <h3>Candidato a la Cámara de Representantes</h3>
+                    <p>Lleva su experiencia artística, cultural y legislativa al Congreso. Un líder con humanidad, sensibilidad y resultados concretos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHAT MAKES HIM DIFFERENT ============ -->
+    <section class="section difference-section">
+        <div class="section-label fade-in">Un líder diferente</div>
+        <h2 class="section-title fade-in">Lo que el arte le enseñó<br>sobre el liderazgo</h2>
+
+        <div class="diff-grid">
+            <div class="diff-card fade-in">
+                <div class="diff-icon">🎨</div>
+                <h3>Ve lo que otros no ven</h3>
+                <p>Su formación en Bellas Artes le dio una mirada que va más allá de los números. Donde otros ven presupuestos, él ve personas, comunidades y oportunidades de transformación.</p>
+            </div>
+            <div class="diff-card fade-in">
+                <div class="diff-icon">🌎</div>
+                <h3>Visión internacional</h3>
+                <p>Ha llevado su arte a Barcelona y París. Sabe que Risaralda puede competir en el escenario global y quiere abrir esas puertas para todo el departamento.</p>
+            </div>
+            <div class="diff-card fade-in">
+                <div class="diff-icon">🏛️</div>
+                <h3>Resultados, no promesas</h3>
+                <p>No habla de cultura en abstracto: fue Director de Cultura, creó la Secretaría departamental y le consiguió un presupuesto de más de $6.000 millones. Eso es ejecutar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="section stats">
+        <div class="section-label fade-in">Impacto real</div>
+        <h2 class="section-title fade-in">Resultados que hablan</h2>
+
+        <div class="stats-grid">
+            <div class="stat-card fade-in">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Aprobación unánime de la Asamblea para crear la Secretaría de Cultura</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">$6.000 Millones</div>
+                <div class="stat-label">Presupuesto proyectado para la nueva Secretaría de Cultura</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">$2.500 Millones</div>
+                <div class="stat-label">De la estampilla Procultura para artistas de Risaralda</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">Int'l</div>
+                <div class="stat-label">Exposiciones en Barcelona y París: arte risaraldense al mundo</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SECOND QUOTE ============ -->
+    <section class="quote-section fade-in">
+        <div class="quote-mark">"</div>
+        <blockquote>
+            Se comienza a saldar una deuda histórica con los cultores, gestores y artistas de Risaralda.
+            Como artista y como diputado, me siento profundamente satisfecho.
+        </blockquote>
+        <div class="quote-author">— Durguez Espinosa, tras la creación de la Secretaría de Cultura</div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <img src="Logo-Voto-101.jpeg" alt="Yo Voto Durguez - Cámara 101 - Centro Democrático MIRA" class="cta-logo fade-in">
+            <h2 class="cta-title fade-in">Conoce al líder<br>con humanidad</h2>
+            <p class="cta-subtitle fade-in">Síguelo en TikTok y descubre cómo un artista está transformando la política en Risaralda.</p>
+            <a href="https://www.tiktok.com/@durguez" target="_blank" rel="noopener" class="cta-button fade-in">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.75a8.18 8.18 0 004.76 1.52V6.84a4.84 4.84 0 01-1-.15z"/></svg>
+                Seguir en TikTok
+            </a>
+            <p class="cta-secondary fade-in">
+                También en
+                <a href="https://www.instagram.com/durguez/" target="_blank">Instagram</a> ·
+                <a href="https://twitter.com/Durguez" target="_blank">X</a> ·
+                <a href="https://www.facebook.com/durguez" target="_blank">Facebook</a>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Publicidad política pagada. Durguez Espinosa - Candidato a la Cámara #101 Centro Democrático · MIRA - Risaralda</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
