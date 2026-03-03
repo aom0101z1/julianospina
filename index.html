@@ -1154,12 +1154,16 @@
             });
         }
 
-        function redirectToZoom() {
+        function resolveEventUrl() {
             let url = meetingConfig.eventUrl || 'evento.html';
             if (url && !url.startsWith('http') && !url.endsWith('.html')) {
                 url = 'https://' + url;
             }
-            window.location.href = url;
+            return url;
+        }
+
+        function redirectToZoom() {
+            window.location.href = resolveEventUrl();
         }
 
         // Event Handlers
@@ -1210,11 +1214,15 @@
 
                 // Check if form should be skipped (no fields enabled)
                 if (shouldSkipForm()) {
-                    await createRegistration({
-                        leaderCode: validCode,
-                        acceptedPolicy: true,
-                        acceptedPolicyAt: new Date().toISOString()
-                    });
+                    try {
+                        await createRegistration({
+                            leaderCode: validCode,
+                            acceptedPolicy: true,
+                            acceptedPolicyAt: new Date().toISOString()
+                        });
+                    } catch (regError) {
+                        console.warn('Registration write failed, redirecting anyway:', regError);
+                    }
                     showMessage('step1-message', '✅ ¡Bienvenido! Redirigiendo al evento...', 'success');
                     setTimeout(redirectToZoom, 1500);
                 } else {
@@ -1249,10 +1257,14 @@
                     return;
                 }
 
-                // Update last access and redirect
-                await updateLastAccess(existing.id);
+                // Update last access (non-blocking - don't let failure prevent entry)
+                try {
+                    await updateLastAccess(existing.id);
+                } catch (updateError) {
+                    console.warn('Failed to update access count, redirecting anyway:', updateError);
+                }
                 showMessage('step1b-message', '✅ ¡Bienvenido de nuevo! Redirigiendo al evento...', 'success');
-                
+
                 setTimeout(redirectToZoom, 1500);
 
             } catch (error) {
@@ -1310,8 +1322,12 @@
                     }
                 }
 
-                // Create new registration
-                await createRegistration(formData);
+                // Create new registration (non-blocking - don't let failure prevent entry)
+                try {
+                    await createRegistration(formData);
+                } catch (regError) {
+                    console.warn('Registration write failed, redirecting anyway:', regError);
+                }
 
                 showMessage('step2-message', '✅ ¡Registro exitoso! Redirigiendo al evento...', 'success');
 
