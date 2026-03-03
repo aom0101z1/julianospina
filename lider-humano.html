@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durguez Espinosa - Líder con Humanidad</title>
+    <meta name="description" content="Un artista. Un gestor. Un líder con humanidad. Conoce a Durguez Espinosa, candidato a la Cámara por Risaralda.">
+    <meta property="og:title" content="Un líder con humanidad - Durguez Espinosa">
+    <meta property="og:description" content="Artista plástico. Expositor en Barcelona y París. Creador de la Secretaría de Cultura. Candidato al Congreso.">
+    <meta property="og:image" content="Logo-Voto-101.jpeg">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0A0A0A;
+            --card: #141414;
+            --card-hover: #1A1A1A;
+            --border: #2A2A2A;
+            --white: #FFFFFF;
+            --gray: #888888;
+            --gray-light: #AAAAAA;
+            --accent: #FF3B5C;
+            --accent-glow: rgba(255, 59, 92, 0.2);
+            --tiktok: #00F2EA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            min-height: 100vh;
+        }
+
+        /* Mobile-first full-screen scroll-snap layout */
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        /* Screen 1: Hook */
+        .screen {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            width: fit-content;
+        }
+
+        .screen h1 {
+            font-size: clamp(2rem, 8vw, 3rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+        }
+
+        .screen h1 .em {
+            color: var(--accent);
+        }
+
+        .screen-text {
+            font-size: 1rem;
+            color: var(--gray-light);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        /* Hero Photo */
+        .hero-photo {
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            position: relative;
+            box-shadow: 0 8px 40px rgba(255, 59, 92, 0.1);
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            object-position: center 20%;
+            display: block;
+        }
+
+        .hero-photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem 1rem 0.75rem;
+            background: linear-gradient(to top, rgba(10,10,10,0.95) 0%, transparent 100%);
+            font-size: 0.75rem;
+            color: var(--gray-light);
+            font-style: italic;
+        }
+
+        /* Credential Cards */
+        .cred-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin: 1rem 0;
+        }
+
+        .cred {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .cred:hover {
+            background: var(--card-hover);
+            border-color: var(--accent);
+        }
+
+        .cred-icon {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .cred-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cred-icon.emoji {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: rgba(255, 59, 92, 0.1);
+        }
+
+        .cred-info h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .cred-info p {
+            font-size: 0.8rem;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        /* Artwork Gallery */
+        .art-gallery {
+            padding: 3rem 0;
+        }
+
+        .art-gallery-title {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .art-gallery h2 {
+            font-size: clamp(1.5rem, 6vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .art-scroll {
+            display: flex;
+            gap: 0.75rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 1rem;
+            margin: 0 -1.25rem;
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+        }
+
+        .art-scroll::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .art-scroll::-webkit-scrollbar-track {
+            background: var(--card);
+            border-radius: 2px;
+        }
+
+        .art-scroll::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .art-card {
+            flex: 0 0 260px;
+            scroll-snap-align: start;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .art-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .art-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .art-card-info {
+            padding: 0.75rem 1rem;
+            background: var(--card);
+        }
+
+        .art-card-info span {
+            font-size: 0.8rem;
+            color: var(--gray-light);
+        }
+
+        .art-scroll-hint {
+            font-size: 0.7rem;
+            color: var(--gray);
+            margin-top: 0.75rem;
+            text-align: center;
+        }
+
+        /* Number highlights */
+        .numbers {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin: 2rem 0;
+        }
+
+        .num-card {
+            padding: 1.25rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .num-card .value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .num-card .label {
+            font-size: 0.75rem;
+            color: var(--gray);
+            line-height: 1.4;
+        }
+
+        /* Quote */
+        .quote-card {
+            padding: 1.5rem;
+            background: var(--card);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 12px 12px 0;
+            margin: 2rem 0;
+        }
+
+        .quote-card p {
+            font-size: 0.95rem;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--gray-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .quote-card cite {
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* Comparison */
+        .vs-section {
+            margin: 2rem 0;
+        }
+
+        .vs-label {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+        }
+
+        .vs-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .vs-item:last-child {
+            border-bottom: none;
+        }
+
+        .vs-x {
+            color: var(--gray);
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .vs-check {
+            color: var(--accent);
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .vs-item span {
+            font-size: 0.9rem;
+        }
+
+        /* Studio Photo */
+        .studio-photo {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 2rem 0;
+            border: 1px solid var(--border);
+        }
+
+        .studio-photo img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* CTA Screen */
+        .cta-screen {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .cta-screen h2 {
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .cta-screen p {
+            font-size: 0.95rem;
+            color: var(--gray-light);
+            margin-bottom: 2rem;
+            max-width: 320px;
+        }
+
+        .tiktok-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: var(--white);
+            color: var(--bg);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px var(--accent-glow);
+        }
+
+        .tiktok-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 50px var(--accent-glow);
+        }
+
+        .tiktok-btn svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .other-links {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .other-links a {
+            font-size: 0.8rem;
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .other-links a:hover {
+            color: var(--white);
+        }
+
+        .cta-logo {
+            width: 180px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Political disclaimer */
+        .disclaimer {
+            text-align: center;
+            padding: 1.5rem 0;
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.2);
+            border-top: 1px solid var(--border);
+            margin-top: 1rem;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 10, 0.96);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 92%;
+            max-height: 80vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--gray-light);
+            font-size: 0.8rem;
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        /* Desktop: keep it phone-sized */
+        @media (min-width: 768px) {
+            body {
+                display: flex;
+                justify-content: center;
+                background: #000;
+            }
+
+            .container {
+                background: var(--bg);
+                min-height: 100vh;
+                box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Screen 1: Hook -->
+        <section class="screen">
+            <div class="tag fade-up">Risaralda al Congreso</div>
+            <h1 class="fade-up stagger-1">Un <span class="em">artista</span> que se volvió<br>líder político.</h1>
+
+            <!-- Hero photo -->
+            <div class="hero-photo fade-up stagger-2">
+                <img src="durguez-artista1.webp" alt="Durguez Espinosa pintando en su estudio" loading="lazy">
+                <div class="hero-photo-caption">Durguez Espinosa en su estudio, creando arte precolombino</div>
+            </div>
+
+            <p class="screen-text fade-up stagger-2">
+                Durguez Espinosa no llegó a la política por ambición.<br>
+                Llegó porque como artista plástico y Director de Cultura,
+                entendió que necesitaba un escenario más grande para transformar a Risaralda.
+            </p>
+
+            <div class="cred-stack">
+                <div class="cred fade-up stagger-1">
+                    <div class="cred-icon">
+                        <img src="durguez-artista6.webp" alt="Artista plástico">
+                    </div>
+                    <div class="cred-info">
+                        <h3>Artista plástico — Bellas Artes UTP</h3>
+                        <p>Graduado de la Facultad de Bellas Artes. Colores del trópico, diseño precolombino, pintura tridimensional.</p>
+                    </div>
+                </div>
+                <div class="cred fade-up stagger-2">
+                    <div class="cred-icon">
+                        <img src="durguez-artista3.webp" alt="Obras expuestas internacionalmente">
+                    </div>
+                    <div class="cred-info">
+                        <h3>Expositor internacional</h3>
+                        <p>Sus obras en galerías y colecciones privadas. Exposiciones en Barcelona y París.</p>
+                    </div>
+                </div>
+                <div class="cred fade-up stagger-3">
+                    <div class="cred-icon emoji">🏛️</div>
+                    <div class="cred-info">
+                        <h3>Creador de la Secretaría de Cultura</h3>
+                        <p>Coautor de la ordenanza aprobada por unanimidad. Presupuesto: +$6.000 millones.</p>
+                    </div>
+                </div>
+                <div class="cred fade-up stagger-4">
+                    <div class="cred-icon">
+                        <img src="Logo-Voto-101.jpeg" alt="Cámara #101" style="object-fit: contain; background: white;">
+                    </div>
+                    <div class="cred-info">
+                        <h3>Candidato a la Cámara #101</h3>
+                        <p>Centro Democrático - Risaralda. Alianza CD-MIRA.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Artwork Gallery (scrollable) -->
+        <section class="art-gallery fade-up">
+            <div class="art-gallery-title">Su obra</div>
+            <h2>El arte que<br>respalda al <span class="em">líder</span></h2>
+
+            <div class="art-scroll">
+                <div class="art-card" onclick="openLightbox('durguez-artista1.webp', 'Durguez creando en su estudio')">
+                    <img src="durguez-artista1.webp" alt="Durguez pintando una obra de gran formato" loading="lazy">
+                    <div class="art-card-info"><span>En el estudio</span></div>
+                </div>
+                <div class="art-card" onclick="openLightbox('durguez-artista3.webp', 'Pintura con iconografía precolombina')">
+                    <img src="durguez-artista3.webp" alt="Pintura con iconografía precolombina y colores tropicales" loading="lazy">
+                    <div class="art-card-info"><span>Iconografía precolombina</span></div>
+                </div>
+                <div class="art-card" onclick="openLightbox('durguez-artista2.webp', 'Esculturas metálicas precolombinas')">
+                    <img src="durguez-artista2.webp" alt="Esculturas metálicas con diseños precolombinos" loading="lazy">
+                    <div class="art-card-info"><span>Esculturas precolombinas</span></div>
+                </div>
+                <div class="art-card" onclick="openLightbox('durguez-artista4.webp', 'Arte precolombino - técnica mixta')">
+                    <img src="durguez-artista4.webp" alt="Arte precolombino en técnica mixta" loading="lazy">
+                    <div class="art-card-info"><span>Técnica mixta</span></div>
+                </div>
+                <div class="art-card" onclick="openLightbox('durguez-artista5.webp', 'Detalle del proceso creativo')">
+                    <img src="durguez-artista5.webp" alt="Durguez pintando de cerca" loading="lazy">
+                    <div class="art-card-info"><span>Proceso creativo</span></div>
+                </div>
+            </div>
+            <div class="art-scroll-hint">← Desliza para ver más →</div>
+        </section>
+
+        <!-- Screen 2: Proof -->
+        <section class="screen">
+            <div class="tag fade-up">Resultados reales</div>
+            <h1 class="fade-up stagger-1">No promete.<br><span class="em">Demuestra.</span></h1>
+
+            <div class="numbers fade-up stagger-2">
+                <div class="num-card">
+                    <div class="value">Int'l</div>
+                    <div class="label">Exposiciones en Barcelona y París</div>
+                </div>
+                <div class="num-card">
+                    <div class="value">100%</div>
+                    <div class="label">Votos a favor en la Asamblea</div>
+                </div>
+                <div class="num-card">
+                    <div class="value">$6.000 M</div>
+                    <div class="label">Para cultura en Risaralda</div>
+                </div>
+                <div class="num-card">
+                    <div class="value">$2.500 M</div>
+                    <div class="label">Estampilla Procultura para artistas</div>
+                </div>
+            </div>
+
+            <div class="quote-card fade-up stagger-3">
+                <p>Se comienza a saldar una deuda histórica con los cultores, gestores y artistas de Risaralda.</p>
+                <cite>— Durguez Espinosa</cite>
+            </div>
+
+            <!-- Studio photo -->
+            <div class="studio-photo fade-up stagger-3">
+                <img src="durguez-artista5.webp" alt="Durguez Espinosa trabajando en su taller" loading="lazy">
+            </div>
+
+            <div class="vs-section fade-up stagger-4">
+                <div class="vs-label">Político tradicional vs. Durguez</div>
+                <div class="vs-item">
+                    <span class="vs-x">✕</span>
+                    <span>Habla de cultura en campaña</span>
+                </div>
+                <div class="vs-item">
+                    <span class="vs-check">✓</span>
+                    <span>Creó la Secretaría de Cultura</span>
+                </div>
+                <div class="vs-item">
+                    <span class="vs-x">✕</span>
+                    <span>Dice que apoya el arte sin conocerlo</span>
+                </div>
+                <div class="vs-item">
+                    <span class="vs-check">✓</span>
+                    <span>Artista plástico, expone en Barcelona y París</span>
+                </div>
+                <div class="vs-item">
+                    <span class="vs-x">✕</span>
+                    <span>Ve números en un presupuesto</span>
+                </div>
+                <div class="vs-item">
+                    <span class="vs-check">✓</span>
+                    <span>Ve personas y comunidades</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen 3: CTA -->
+        <section class="cta-screen">
+            <img src="Logo-Voto-101.jpeg" alt="Yo Voto Durguez - Cámara 101" class="cta-logo fade-up">
+            <h2 class="fade-up stagger-1">Síguelo<br>en <span class="em">TikTok</span></h2>
+            <p class="fade-up stagger-2">Conoce el lado humano del candidato. Arte, cultura y propuestas para Risaralda.</p>
+
+            <a href="https://www.tiktok.com/@durguez" target="_blank" rel="noopener" class="tiktok-btn fade-up stagger-3">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.75a8.18 8.18 0 004.76 1.52V6.84a4.84 4.84 0 01-1-.15z"/></svg>
+                Seguir a @durguez
+            </a>
+
+            <div class="other-links fade-up stagger-4">
+                <a href="https://www.instagram.com/durguez/" target="_blank">Instagram</a>
+                <a href="https://twitter.com/Durguez" target="_blank">X</a>
+                <a href="https://www.facebook.com/durguez" target="_blank">Facebook</a>
+            </div>
+
+            <div class="disclaimer">
+                Publicidad política pagada. Durguez Espinosa<br>Candidato a la Cámara #101 · Centro Democrático · Risaralda
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img id="lightbox-img" src="" alt="">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+    <script>
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -30px 0px'
+        });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Lightbox
+        function openLightbox(src, caption) {
+            const lb = document.getElementById('lightbox');
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox-img').alt = caption;
+            document.getElementById('lightbox-caption').textContent = caption;
+            lb.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>
