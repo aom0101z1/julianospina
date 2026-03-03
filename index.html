@@ -892,7 +892,8 @@
             date: '2026-02-28',
             time: '19:00',
             title: 'Gran Reunión Virtual con Durguez Espinosa',
-            description: 'Únete a la gran reunión virtual con Durguez Espinosa. ¡Tu voto cuenta! Centro Democrático - 101'
+            description: 'Únete a la gran reunión virtual con Durguez Espinosa. ¡Tu voto cuenta! Centro Democrático - 101',
+            eventUrl: 'evento.html'
         };
 
         // Load form configuration from Firestore
@@ -1154,7 +1155,7 @@
         }
 
         function redirectToZoom() {
-            window.location.href = 'evento.html';
+            window.location.href = meetingConfig.eventUrl || 'evento.html';
         }
 
         // Event Handlers
