@@ -361,6 +361,19 @@
             text-decoration: underline;
         }
 
+        .form-helper-link {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.82rem;
+            color: #1a237e;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .form-helper-link:hover {
+            text-decoration: underline;
+        }
+
         .contact-box {
             margin-top: 24px;
             padding: 20px;
@@ -670,6 +683,7 @@
                         autocomplete="off"
                         required
                     >
+                    <a href="#contacto-info" class="form-helper-link" onclick="document.querySelector('.contact-box').scrollIntoView({behavior:'smooth'});return false;">Más información sobre el número</a>
                 </div>
 
                 <button type="submit" class="btn btn-primary" id="verifyCodeBtn">
