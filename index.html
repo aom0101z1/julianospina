@@ -1155,7 +1155,11 @@
         }
 
         function redirectToZoom() {
-            window.location.href = meetingConfig.eventUrl || 'evento.html';
+            let url = meetingConfig.eventUrl || 'evento.html';
+            if (url && !url.startsWith('http') && !url.endsWith('.html')) {
+                url = 'https://' + url;
+            }
+            window.location.href = url;
         }
 
         // Event Handlers
