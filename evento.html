@@ -61,27 +61,36 @@
             appId: "1:1074589358816:web:a56e1318dee9d8dee10e85"
         };
 
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
+        // Prevent infinite redirect loops
+        const MAX_REDIRECTS_KEY = 'evento_redirect_count';
+        const redirectCount = parseInt(sessionStorage.getItem(MAX_REDIRECTS_KEY) || '0');
+        if (redirectCount > 2) {
+            console.warn('Too many redirects, stopping.');
+            sessionStorage.removeItem(MAX_REDIRECTS_KEY);
+        } else {
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
 
-        try {
-            const docSnap = await getDoc(doc(db, 'settings', 'meetingConfig'));
-            if (docSnap.exists()) {
-                let eventUrl = docSnap.data().eventUrl;
-                if (eventUrl && !eventUrl.includes('evento.html')) {
-                    if (!eventUrl.startsWith('http')) {
-                        eventUrl = 'https://' + eventUrl;
+            try {
+                const docSnap = await getDoc(doc(db, 'settings', 'meetingConfig'));
+                if (docSnap.exists()) {
+                    let eventUrl = docSnap.data().eventUrl;
+                    // Only redirect if URL is external (not this page)
+                    if (eventUrl && !eventUrl.includes('evento') && !eventUrl.includes('julianospina.com.co')) {
+                        if (!eventUrl.startsWith('http')) {
+                            eventUrl = 'https://' + eventUrl;
+                        }
+                        sessionStorage.setItem(MAX_REDIRECTS_KEY, String(redirectCount + 1));
+                        const notice = document.getElementById('redirectNotice');
+                        const link = document.getElementById('manualLink');
+                        link.href = eventUrl;
+                        notice.style.display = 'block';
+                        setTimeout(() => { window.location.href = eventUrl; }, 1500);
                     }
-                    // Show notice and redirect
-                    const notice = document.getElementById('redirectNotice');
-                    const link = document.getElementById('manualLink');
-                    link.href = eventUrl;
-                    notice.style.display = 'block';
-                    setTimeout(() => { window.location.href = eventUrl; }, 1500);
                 }
+            } catch (e) {
+                console.warn('Could not load event URL:', e);
             }
-        } catch (e) {
-            console.warn('Could not load event URL:', e);
         }
     </script>
 </body>
