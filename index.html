@@ -845,6 +845,7 @@
             getFirestore,
             collection,
             addDoc,
+            setDoc,
             query,
             where,
             getDocs,
@@ -1115,26 +1116,27 @@
         loadMeetingConfig();
 
         async function checkExistingRegistration(cedula) {
-            const q = query(
-                collection(db, COLLECTION_NAME),
-                where('cedula', '==', cedula)
-            );
-            const snapshot = await getDocs(q);
-            
-            if (!snapshot.empty) {
-                const docData = snapshot.docs[0];
-                return { exists: true, id: docData.id, data: docData.data() };
+            // Use cedula as document ID — allows get() without list permission
+            const docRef = doc(db, COLLECTION_NAME, cedula);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                return { exists: true, id: docSnap.id, data: docSnap.data() };
             }
             return { exists: false };
         }
 
         async function createRegistration(data) {
-            return await addDoc(collection(db, COLLECTION_NAME), {
+            // Use cedula as document ID for secure single-doc lookups
+            const cedula = data.cedula;
+            const docRef = doc(db, COLLECTION_NAME, cedula);
+            await setDoc(docRef, {
                 ...data,
                 createdAt: serverTimestamp(),
                 lastAccess: serverTimestamp(),
                 accessCount: 1
             });
+            return docRef;
         }
 
         async function updateLastAccess(docId) {
