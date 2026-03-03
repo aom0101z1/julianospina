@@ -68,8 +68,8 @@
             const docSnap = await getDoc(doc(db, 'settings', 'meetingConfig'));
             if (docSnap.exists()) {
                 let eventUrl = docSnap.data().eventUrl;
-                if (eventUrl) {
-                    if (!eventUrl.startsWith('http') && !eventUrl.endsWith('.html')) {
+                if (eventUrl && !eventUrl.includes('evento.html')) {
+                    if (!eventUrl.startsWith('http')) {
                         eventUrl = 'https://' + eventUrl;
                     }
                     // Show notice and redirect
