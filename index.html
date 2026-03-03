@@ -1127,16 +1127,22 @@
         }
 
         async function createRegistration(data) {
-            // Use cedula as document ID for secure single-doc lookups
-            const cedula = data.cedula;
-            const docRef = doc(db, COLLECTION_NAME, cedula);
-            await setDoc(docRef, {
+            const registrationData = {
                 ...data,
                 createdAt: serverTimestamp(),
                 lastAccess: serverTimestamp(),
                 accessCount: 1
-            });
-            return docRef;
+            };
+
+            // Use cedula as doc ID if available, otherwise auto-generate
+            if (data.cedula) {
+                const docRef = doc(db, COLLECTION_NAME, data.cedula);
+                await setDoc(docRef, registrationData);
+                return docRef;
+            } else {
+                const docRef = await addDoc(collection(db, COLLECTION_NAME), registrationData);
+                return docRef;
+            }
         }
 
         async function updateLastAccess(docId) {
