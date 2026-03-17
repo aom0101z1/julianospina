@@ -203,9 +203,12 @@
         <div class="newsletter fade-in">
             <h2 class="newsletter__title">Mantente informado</h2>
             <p class="newsletter__subtitle">Recibe artículos de opinión y noticias sobre la gestión pública en Pereira directamente en tu correo.</p>
-            <form class="newsletter__form" id="newsletter-form" action="https://formspree.io/f/FORMSPREE_ID" method="POST">
+            <form class="newsletter__form" id="newsletter-form" action="https://formsubmit.co/admin@ciudadbilingue.com" method="POST">
                 <input type="email" name="email" class="newsletter__input" placeholder="Tu correo electrónico" required aria-label="Correo electrónico">
-                <input type="hidden" name="_subject" value="Nueva suscripción al newsletter">
+                <input type="hidden" name="_subject" value="Nueva suscripción al newsletter - julianospina.com.co">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://julianospina.com.co?subscribed=1">
+                <input type="hidden" name="_template" value="table">
                 <button type="submit" class="btn btn--primary">Suscribirme</button>
             </form>
             <div class="newsletter__msg" id="newsletter-msg"></div>
