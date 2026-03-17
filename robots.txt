@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://julianospina.com.co/sitemap.xml
+
+# Exclude admin and registration system
+Disallow: /admin.html
+Disallow: /registro.html

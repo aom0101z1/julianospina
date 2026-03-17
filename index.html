@@ -3,1348 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Evento - Durguez</title>
+    <title>Julián Ospina Posada — Abogado · Servidor Público · Pereira</title>
+    <meta name="description" content="Julián Andrés Ospina Posada. Abogado, especialista en Derecho Administrativo, ex-concejal de Pereira, precandidato a la Gobernación de Risaralda. Más de 6 años de servicio público.">
+    <meta property="og:title" content="Julián Ospina Posada — Abogado y Servidor Público">
+    <meta property="og:description" content="Más de 6 años al servicio de Pereira. Abogado, especialista en Derecho Administrativo, ex-presidente del Concejo de Pereira, precandidato a la Gobernación de Risaralda por el Centro Democrático.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://julianospina.com.co">
+    <link rel="canonical" href="https://julianospina.com.co">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-primary: #1a1a2e;
-            --color-secondary: #16213e;
-            --color-accent: #c9a227;
-            --color-accent-light: #e6c84c;
-            --color-brand-orange: #f47629;
-            --color-text: #f5f5f5;
-            --color-text-muted: #b8b8b8;
-            --color-text-dark: #303030;
-            --color-success: #4caf50;
-            --color-error: #ef5350;
-            --color-white: #ffffff;
-            --font-display: 'Poppins', sans-serif;
-            --font-body: 'Source Sans 3', sans-serif;
-        }
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background: #ffffff;
-            min-height: 100vh;
-            color: var(--color-text-dark);
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 520px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Header matching durguez.com */
-        .site-header {
-            padding: 0;
-            text-align: center;
-            margin-bottom: 32px;
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        .logo-container {
-            text-align: center;
-            margin-bottom: 40px;
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        .logo {
-            max-width: 280px;
-            height: auto;
-            filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.1));
-        }
-
-        .card {
-            background: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        .card-title {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 8px;
-            color: var(--color-primary);
-            letter-spacing: 0.5px;
-        }
-
-        .card-subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 32px;
-            font-size: 0.95rem;
-            font-weight: 400;
-        }
-
-        .step-indicator {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 32px;
-        }
-
-        .step-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #ddd;
-            transition: all 0.4s ease;
-        }
-
-        .step-dot.active {
-            background: var(--color-primary);
-            box-shadow: 0 0 8px rgba(26, 26, 46, 0.3);
-            transform: scale(1.2);
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--color-primary);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 16px 20px;
-            font-size: 1rem;
-            font-family: var(--font-body);
-            background: #f8f9fa;
-            border: 1px solid #d0d0d0;
-            border-radius: 12px;
-            color: #303030;
-            transition: all 0.3s ease;
-            outline: none;
-        }
-
-        .form-input::placeholder {
-            color: #aaa;
-        }
-
-        .form-input:focus {
-            border-color: var(--color-primary);
-            background: #fff;
-            box-shadow: 0 0 0 3px rgba(26, 26, 46, 0.1);
-        }
-
-        .form-input.error {
-            border-color: var(--color-error);
-            animation: shake 0.5s ease;
-        }
-
-        .checkbox-container {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            margin-bottom: 24px;
-            cursor: pointer;
-        }
-
-        .checkbox-input {
-            display: none;
-        }
-
-        .checkbox-custom {
-            width: 24px;
-            height: 24px;
-            min-width: 24px;
-            border: 2px solid #ccc;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            margin-top: 2px;
-        }
-
-        .checkbox-input:checked + .checkbox-custom {
-            background: var(--color-primary);
-            border-color: var(--color-primary);
-        }
-
-        .checkbox-custom svg {
-            width: 14px;
-            height: 14px;
-            stroke: #fff;
-            stroke-width: 3;
-            opacity: 0;
-            transform: scale(0);
-            transition: all 0.2s ease;
-        }
-
-        .checkbox-input:checked + .checkbox-custom svg {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .checkbox-label {
-            font-size: 0.9rem;
-            color: #555;
-            line-height: 1.5;
-        }
-
-        .checkbox-label a {
-            color: var(--color-primary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        .checkbox-label a:hover {
-            color: #283593;
-            text-decoration: underline;
-        }
-
-        .btn {
-            width: 100%;
-            padding: 18px 24px;
-            font-size: 1rem;
-            font-weight: 600;
-            font-family: var(--font-body);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #0F3460 0%, #16213E 100%);
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(15, 52, 96, 0.3);
-        }
-
-        .btn-primary:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(15, 52, 96, 0.4);
-        }
-
-        .btn-primary:active:not(:disabled) {
-            transform: translateY(0);
-        }
-
-        .btn-primary:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            border: 1px solid #ccc;
-            color: #666;
-            margin-top: 12px;
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--color-primary);
-            color: var(--color-primary);
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 12px;
-            margin-top: 24px;
-        }
-
-        .btn-group .btn {
-            flex: 1;
-        }
-
-        .message {
-            padding: 14px 18px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .message-error {
-            background: #fdecea;
-            border: 1px solid #f5c6cb;
-            color: #c62828;
-        }
-
-        .message-success {
-            background: #e8f5e9;
-            border: 1px solid #c8e6c9;
-            color: #2e7d32;
-        }
-
-        .message-info {
-            background: #e3f2fd;
-            border: 1px solid #bbdefb;
-            color: #1565c0;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 2px solid rgba(26, 26, 46, 0.3);
-            border-radius: 50%;
-            border-top-color: var(--color-primary);
-            animation: spin 0.8s linear infinite;
-        }
-
-        .divider {
-            display: flex;
-            align-items: center;
-            margin: 28px 0;
-        }
-
-        .divider::before,
-        .divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: #e0e0e0;
-        }
-
-        .divider span {
-            padding: 0 16px;
-            font-size: 0.8rem;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .reentry-link {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .reentry-link a {
-            color: #1a237e;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        .reentry-link a:hover {
-            color: #283593;
-            text-decoration: underline;
-        }
-
-        .form-helper-link {
-            display: block;
-            margin-top: 8px;
-            font-size: 0.82rem;
-            color: #1a237e;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .form-helper-link:hover {
-            text-decoration: underline;
-        }
-
-        .contact-box {
-            margin-top: 24px;
-            padding: 20px;
-            background: #f0faf0;
-            border: 1px solid #c8e6c9;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .contact-text {
-            font-size: 0.9rem;
-            color: #333;
-            margin-bottom: 4px;
-        }
-
-        .btn-whatsapp {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: #25D366;
-            color: #fff;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: 600;
-            font-family: var(--font-body);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .btn-whatsapp:hover {
-            background: #1fb855;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-        }
-
-        .btn-whatsapp svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .footer p {
-            font-size: 0.8rem;
-            color: #999;
-        }
-
-        .footer a {
-            color: #1a237e;
-            text-decoration: none;
-        }
-
-        /* Decorative elements - hidden, using background image instead */
-        .decoration {
-            display: none;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            20%, 60% { transform: translateX(-8px); }
-            40%, 80% { transform: translateX(8px); }
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .site-header {
-                margin-bottom: 24px;
-            }
-
-            .countdown-section {
-                padding: 20px 16px 18px;
-            }
-
-            .container {
-                padding: 24px 16px;
-            }
-
-            .card {
-                padding: 28px 24px;
-            }
-
-            .card-title {
-                font-size: 1.5rem;
-            }
-
-            .btn-group {
-                flex-direction: column;
-            }
-        }
-
-        /* Countdown Timer Styles */
-        .countdown-section {
-            background: linear-gradient(135deg, #0F3460 0%, #16213E 100%);
-            border-radius: 0 0 20px 20px;
-            padding: 28px 24px 24px;
-            text-align: center;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .countdown-title {
-            color: #ffeb3b;
-            font-size: 1.2rem;
-            margin-bottom: 6px;
-            font-weight: 700;
-        }
-
-        .countdown-subtitle {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-            margin-bottom: 16px;
-            font-weight: 400;
-        }
-
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .countdown-item {
-            text-align: center;
-            min-width: 60px;
-        }
-
-        .countdown-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #ffeb3b;
-            line-height: 1;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .countdown-value.secondary {
-            color: #fff;
-        }
-
-        .countdown-label {
-            font-size: 0.65rem;
-            color: rgba(255, 255, 255, 0.7);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 4px;
-        }
-
-        .countdown-separator {
-            font-size: 2rem;
-            color: rgba(255, 255, 255, 0.4);
-            font-weight: 300;
-            align-self: flex-start;
-            margin-top: 2px;
-        }
-
-        .btn-google-calendar {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: #fff;
-            color: #1a237e;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .btn-google-calendar:hover {
-            background: #f5f5f5;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        .btn-google-calendar svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .countdown-expired {
-            color: #ffeb3b;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        @media (max-width: 480px) {
-            .countdown-timer {
-                gap: 8px;
-            }
-            .countdown-item {
-                min-width: 50px;
-            }
-            .countdown-value {
-                font-size: 1.6rem;
-            }
-            .countdown-separator {
-                font-size: 1.6rem;
-            }
-            .btn-google-calendar {
-                padding: 10px 16px;
-                font-size: 0.85rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-    <div class="decoration decoration-1"></div>
-    <div class="decoration decoration-2"></div>
 
-    <!-- Header: Countdown Timer -->
-    <header class="site-header">
-        <div id="countdownSection" class="countdown-section">
-            <div id="countdownEventName" class="countdown-title">Gran Reunión Virtual con Durguez Espinosa</div>
-            <div class="countdown-subtitle">Faltan para el evento:</div>
+<!-- ========== NAVIGATION ========== -->
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+    <div class="nav__inner">
+        <a href="index.html" class="nav__brand">
+            <span class="nav__name">Julián Ospina</span>
+            <span class="nav__tagline">Abogado · Servidor Público</span>
+        </a>
 
-            <div id="countdownTimer" class="countdown-timer">
-                <div class="countdown-item">
-                    <div class="countdown-value" id="countdownDays">00</div>
-                    <div class="countdown-label">Días</div>
-                </div>
-                <span class="countdown-separator">:</span>
-                <div class="countdown-item">
-                    <div class="countdown-value secondary" id="countdownHours">00</div>
-                    <div class="countdown-label">Horas</div>
-                </div>
-                <span class="countdown-separator">:</span>
-                <div class="countdown-item">
-                    <div class="countdown-value secondary" id="countdownMinutes">00</div>
-                    <div class="countdown-label">Minutos</div>
-                </div>
-                <span class="countdown-separator">:</span>
-                <div class="countdown-item">
-                    <div class="countdown-value secondary" id="countdownSeconds">00</div>
-                    <div class="countdown-label">Segundos</div>
-                </div>
-            </div>
-
-        </div>
-    </header>
-
-    <div class="container">
-
-        <!-- Step 1: Code Verification -->
-        <div id="step1" class="card">
-            <div class="step-indicator">
-                <div class="step-dot active"></div>
-                <div class="step-dot"></div>
-            </div>
-
-            <h1 class="card-title">Bienvenido</h1>
-            <p class="card-subtitle">Ingresa el número de celular de la persona que te invitó para continuar</p>
-
-            <div id="step1-message" class="hidden"></div>
-
-            <form id="codeForm">
-                <div class="form-group">
-                    <label class="form-label" for="leaderCode">Número de Celular para Ingresar</label>
-                    <input
-                        type="text"
-                        id="leaderCode"
-                        name="leaderCode"
-                        class="form-input"
-                        placeholder="Ej: 3001234567"
-                        autocomplete="off"
-                        required
-                    >
-                    <a href="#contacto-info" class="form-helper-link" onclick="document.querySelector('.contact-box').scrollIntoView({behavior:'smooth'});return false;">Más información sobre el número</a>
-                </div>
-
-                <button type="submit" class="btn btn-primary" id="verifyCodeBtn">
-                    Continuar
-                </button>
-            </form>
-
-            <div class="contact-box">
-                <p class="contact-text" style="margin-bottom: 12px;">Para más información escríbele a:</p>
-                <p class="contact-text"><strong>Julián Ospina</strong> — WhatsApp: 3116044573</p>
-                <a href="https://wa.me/573116044573?text=Quiero%20participar%20en%20la%20reuni%C3%B3n" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    Escribir por WhatsApp
-                </a>
-            </div>
-
-            <div class="divider" id="reentry-divider">
-                <span>¿Ya te registraste?</span>
-            </div>
-
-            <div class="reentry-link" id="reentry-link-container">
-                <a href="#" id="showReentryLink">Ingresa con tu cédula →</a>
-            </div>
+        <div class="nav__links">
+            <a href="index.html" class="nav__link active">Inicio</a>
+            <a href="pages/trayectoria.html" class="nav__link">Trayectoria</a>
+            <a href="pages/logros.html" class="nav__link">Logros</a>
+            <a href="pages/opinion.html" class="nav__link">Opinión</a>
+            <a href="pages/contacto.html" class="nav__link">Contacto</a>
         </div>
 
-        <!-- Step 1B: Re-entry for existing users -->
-        <div id="step1b" class="card hidden">
-            <div class="step-indicator">
-                <div class="step-dot active"></div>
-                <div class="step-dot"></div>
-            </div>
-
-            <h1 class="card-title">Re-ingreso</h1>
-            <p class="card-subtitle">Ingresa tu cédula para acceder nuevamente</p>
-
-            <div id="step1b-message" class="hidden"></div>
-
-            <form id="reentryForm">
-                <div class="form-group">
-                    <label class="form-label" for="reentryCedula">Número de Cédula</label>
-                    <input 
-                        type="text" 
-                        id="reentryCedula" 
-                        name="reentryCedula" 
-                        class="form-input" 
-                        placeholder="Tu número de cédula"
-                        autocomplete="off"
-                        required
-                    >
-                </div>
-
-                <button type="submit" class="btn btn-primary" id="reentryBtn">
-                    Ingresar al Evento
-                </button>
-
-                <button type="button" class="btn btn-secondary" id="backToStep1">
-                    ← Volver
-                </button>
-            </form>
-        </div>
-
-        <!-- Step 2: Registration Form -->
-        <div id="step2" class="card hidden">
-            <div class="step-indicator">
-                <div class="step-dot active"></div>
-                <div class="step-dot active"></div>
-            </div>
-
-            <h1 class="card-title">Registro</h1>
-            <p class="card-subtitle">Completa tus datos para acceder al evento</p>
-
-            <div id="step2-message" class="hidden"></div>
-
-            <form id="registrationForm">
-                <input type="hidden" id="confirmedCode" name="confirmedCode">
-
-                <div class="form-group" id="field-nombreCompleto">
-                    <label class="form-label" for="nombreCompleto">Nombre y Apellido</label>
-                    <input
-                        type="text"
-                        id="nombreCompleto"
-                        name="nombreCompleto"
-                        class="form-input"
-                        placeholder="Tu nombre completo"
-                        required
-                    >
-                </div>
-
-                <div class="form-group" id="field-cedula">
-                    <label class="form-label" for="cedula">Número de Cédula</label>
-                    <input
-                        type="text"
-                        id="cedula"
-                        name="cedula"
-                        class="form-input"
-                        placeholder="Tu número de cédula"
-                        required
-                    >
-                </div>
-
-                <div class="form-group" id="field-telefono">
-                    <label class="form-label" for="telefono">Teléfono</label>
-                    <input
-                        type="tel"
-                        id="telefono"
-                        name="telefono"
-                        class="form-input"
-                        placeholder="Tu número de teléfono"
-                        required
-                    >
-                </div>
-
-                <div class="form-group" id="field-email" style="display: none;">
-                    <label class="form-label" for="email">Correo Electrónico</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        class="form-input"
-                        placeholder="Tu correo electrónico"
-                    >
-                </div>
-
-                <label class="checkbox-container">
-                    <input type="checkbox" id="acceptPolicy" name="acceptPolicy" class="checkbox-input" required>
-                    <span class="checkbox-custom">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                    </span>
-                    <span class="checkbox-label">
-                        He leído y acepto la 
-                        <a href="https://durguez.com/politica-de-datos/" target="_blank">
-                            Política de Tratamiento de Datos Personales
-                        </a>
-                    </span>
-                </label>
-
-                <div class="btn-group">
-                    <button type="button" class="btn btn-secondary" id="exitBtn">
-                        Salir
-                    </button>
-                    <button type="submit" class="btn btn-primary" id="submitBtn" disabled>
-                        Ingresar
-                    </button>
-                </div>
-            </form>
-        </div>
-
-        <div class="footer">
-            <p>© 2025 <a href="https://durguez.com" target="_blank">Durguez</a> — Primero Dios, luego la Familia y la Patria</p>
-        </div>
+        <button class="nav__toggle" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </div>
 
-    <!-- Firebase SDK -->
-    <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-        import {
-            getFirestore,
-            collection,
-            addDoc,
-            setDoc,
-            query,
-            where,
-            getDocs,
-            doc,
-            getDoc,
-            updateDoc,
-            increment,
-            serverTimestamp
-        } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
-
-        // =====================================================
-        // CONFIGURACIÓN FIREBASE - DURGUEZ REGISTRO
-        // =====================================================
-        const firebaseConfig = {
-            apiKey: "AIzaSyB_2VfUKH4dOkQ5fTqYy8hixUE9qN3amYY",
-            authDomain: "durguez-registro.firebaseapp.com",
-            projectId: "durguez-registro",
-            storageBucket: "durguez-registro.firebasestorage.app",
-            messagingSenderId: "1074589358816",
-            appId: "1:1074589358816:web:a56e1318dee9d8dee10e85"
-        };
-
-        // URL del Zoom Webinar
-        const ZOOM_URL = "https://us02web.zoom.us/j/84436574404?pwd=Odrl7lhlXTWbNI9SaNBEjUldgBdZFM.1";
-        // =====================================================
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-        const COLLECTION_NAME = 'registros_evento';
-        const LIDERES_COLLECTION = 'lideres';
-        const SETTINGS_DOC = 'formConfig';
-
-        // Form configuration (loaded from Firestore)
-        let formConfig = {
-            nombreCompleto: true,
-            cedula: true,
-            telefono: true,
-            email: false
-        };
-
-        // Meeting configuration (loaded from Firestore)
-        let meetingConfig = {
-            date: '2026-02-28',
-            time: '19:00',
-            title: 'Gran Reunión Virtual con Durguez Espinosa',
-            description: 'Únete a la gran reunión virtual con Durguez Espinosa. ¡Tu voto cuenta! Centro Democrático - 101',
-            eventUrl: 'evento.html'
-        };
-
-        // Load form configuration from Firestore
-        async function loadFormConfig() {
-            try {
-                const docRef = doc(db, 'settings', SETTINGS_DOC);
-                const docSnap = await getDoc(docRef);
-
-                if (docSnap.exists()) {
-                    formConfig = docSnap.data();
-                }
-
-                applyFormConfig();
-            } catch (error) {
-                console.error('Error loading form config:', error);
-            }
-        }
-
-        // Load meeting configuration from Firestore
-        async function loadMeetingConfig() {
-            try {
-                const docRef = doc(db, 'settings', 'meetingConfig');
-                const docSnap = await getDoc(docRef);
-
-                if (docSnap.exists()) {
-                    meetingConfig = { ...meetingConfig, ...docSnap.data() };
-                }
-
-                // Update event name
-                const eventNameEl = document.getElementById('countdownEventName');
-                if (eventNameEl && meetingConfig.title) {
-                    eventNameEl.textContent = meetingConfig.title;
-                }
-
-                // Start countdown
-                startCountdown();
-
-                // Update Google Calendar link
-                updateCalendarLink();
-            } catch (error) {
-                console.error('Error loading meeting config:', error);
-                // Start countdown with defaults anyway
-                startCountdown();
-                updateCalendarLink();
-            }
-        }
-
-        // Start the countdown timer
-        function startCountdown() {
-            const targetDate = new Date(`${meetingConfig.date}T${meetingConfig.time}:00`);
-
-            function updateCountdown() {
-                const now = new Date();
-                const diff = targetDate - now;
-
-                const timerEl = document.getElementById('countdownTimer');
-                const sectionEl = document.getElementById('countdownSection');
-
-                if (diff <= 0) {
-                    // Event has started or passed
-                    if (timerEl) {
-                        timerEl.innerHTML = '<div class="countdown-expired">¡El evento ya comenzó!</div>';
-                    }
-                    return;
-                }
-
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-                document.getElementById('countdownDays').textContent = days.toString().padStart(2, '0');
-                document.getElementById('countdownHours').textContent = hours.toString().padStart(2, '0');
-                document.getElementById('countdownMinutes').textContent = minutes.toString().padStart(2, '0');
-                document.getElementById('countdownSeconds').textContent = seconds.toString().padStart(2, '0');
-            }
-
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
-        }
-
-        // Generate Google Calendar URL
-        function updateCalendarLink() {
-            const startDate = new Date(`${meetingConfig.date}T${meetingConfig.time}:00`);
-            const endDate = new Date(startDate.getTime() + (2 * 60 * 60 * 1000)); // 2 hours duration
-
-            // Format dates for Google Calendar (YYYYMMDDTHHmmss)
-            const formatDate = (d) => {
-                return d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-            };
-
-            const params = new URLSearchParams({
-                action: 'TEMPLATE',
-                text: meetingConfig.title || 'Reunión Virtual con Durguez',
-                dates: `${formatDate(startDate)}/${formatDate(endDate)}`,
-                details: meetingConfig.description || '',
-                location: 'Evento Virtual (Zoom)',
-                ctz: 'America/Bogota'
-            });
-
-            const calendarUrl = `https://calendar.google.com/calendar/render?${params.toString()}`;
-
-            const calendarBtn = document.getElementById('addToCalendarBtn');
-            if (calendarBtn) {
-                calendarBtn.href = calendarUrl;
-            }
-        }
-
-        // Apply form configuration to show/hide fields
-        function applyFormConfig() {
-            const nombreGroup = document.getElementById('field-nombreCompleto');
-            const cedulaGroup = document.getElementById('field-cedula');
-            const telefonoGroup = document.getElementById('field-telefono');
-            const emailGroup = document.getElementById('field-email');
-
-            // Show/hide fields based on config
-            if (nombreGroup) {
-                nombreGroup.style.display = formConfig.nombreCompleto ? 'block' : 'none';
-                nombreGroup.querySelector('input').required = formConfig.nombreCompleto;
-            }
-            if (cedulaGroup) {
-                cedulaGroup.style.display = formConfig.cedula ? 'block' : 'none';
-                cedulaGroup.querySelector('input').required = formConfig.cedula;
-            }
-            if (telefonoGroup) {
-                telefonoGroup.style.display = formConfig.telefono ? 'block' : 'none';
-                telefonoGroup.querySelector('input').required = formConfig.telefono;
-            }
-            if (emailGroup) {
-                emailGroup.style.display = formConfig.email ? 'block' : 'none';
-                emailGroup.querySelector('input').required = formConfig.email;
-            }
-
-            // Check if any field is enabled
-            const hasAnyField = formConfig.nombreCompleto || formConfig.cedula || formConfig.telefono || formConfig.email;
-
-            // If no fields, hide the policy checkbox too (no data to collect)
-            const policyContainer = document.querySelector('.checkbox-container');
-            if (policyContainer) {
-                policyContainer.style.display = hasAnyField ? 'flex' : 'none';
-                if (!hasAnyField) {
-                    document.getElementById('acceptPolicy').checked = true;
-                    document.getElementById('submitBtn').disabled = false;
-                }
-            }
-
-            // Hide re-entry option if cédula is disabled (can't identify returning users)
-            const reentryDivider = document.getElementById('reentry-divider');
-            const reentryLinkContainer = document.getElementById('reentry-link-container');
-            if (reentryDivider) {
-                reentryDivider.style.display = formConfig.cedula ? 'flex' : 'none';
-            }
-            if (reentryLinkContainer) {
-                reentryLinkContainer.style.display = formConfig.cedula ? 'block' : 'none';
-            }
-        }
-
-        // Check if form should be skipped (no fields enabled)
-        function shouldSkipForm() {
-            return formConfig.skipRegistration || (!formConfig.nombreCompleto && !formConfig.cedula && !formConfig.telefono && !formConfig.email);
-        }
-
-        // DOM Elements
-        const step1 = document.getElementById('step1');
-        const step1b = document.getElementById('step1b');
-        const step2 = document.getElementById('step2');
-        const codeForm = document.getElementById('codeForm');
-        const reentryForm = document.getElementById('reentryForm');
-        const registrationForm = document.getElementById('registrationForm');
-        const acceptPolicy = document.getElementById('acceptPolicy');
-        const submitBtn = document.getElementById('submitBtn');
-        const showReentryLink = document.getElementById('showReentryLink');
-        const backToStep1 = document.getElementById('backToStep1');
-        const exitBtn = document.getElementById('exitBtn');
-
-        // Helper Functions
-        function showMessage(containerId, message, type) {
-            const container = document.getElementById(containerId);
-            container.className = `message message-${type}`;
-            container.innerHTML = message;
-            container.classList.remove('hidden');
-        }
-
-        function hideMessage(containerId) {
-            const container = document.getElementById(containerId);
-            container.classList.add('hidden');
-        }
-
-        function setLoading(button, loading) {
-            if (loading) {
-                button.disabled = true;
-                button.dataset.originalText = button.textContent;
-                button.innerHTML = '<span class="loading"></span>';
-            } else {
-                button.disabled = false;
-                button.textContent = button.dataset.originalText;
-            }
-        }
-
-        // =====================================================
-        // VALIDACIÓN DE CÓDIGO - ACCESO LIBRE
-        // =====================================================
-        // Cualquier número permite el ingreso. Si el número
-        // corresponde a un líder registrado, se asocia al líder.
-        // Si no, se registra igual con el número ingresado.
-        // Esto evita que alguien se quede fuera por escribir
-        // mal un número.
-        //
-        // Cambio realizado: 2026-02-27
-        // =====================================================
-        async function validateLeaderCode(code) {
-            const phone = code?.trim();
-            if (!phone) return null;
-
-            // Siempre permite el ingreso con cualquier número no vacío
-            return phone;
-        }
-
-        // Initialize: load form config and meeting config on page load
-        loadFormConfig();
-        loadMeetingConfig();
-
-        async function checkExistingRegistration(cedula) {
-            // Use cedula as document ID — allows get() without list permission
-            const docRef = doc(db, COLLECTION_NAME, cedula);
-            const docSnap = await getDoc(docRef);
-
-            if (docSnap.exists()) {
-                return { exists: true, id: docSnap.id, data: docSnap.data() };
-            }
-            return { exists: false };
-        }
-
-        async function createRegistration(data) {
-            const registrationData = {
-                ...data,
-                createdAt: serverTimestamp(),
-                lastAccess: serverTimestamp(),
-                accessCount: 1
-            };
-
-            // Use cedula as doc ID if available, otherwise auto-generate
-            if (data.cedula) {
-                const docRef = doc(db, COLLECTION_NAME, data.cedula);
-                await setDoc(docRef, registrationData);
-                return docRef;
-            } else {
-                const docRef = await addDoc(collection(db, COLLECTION_NAME), registrationData);
-                return docRef;
-            }
-        }
-
-        async function updateLastAccess(docId) {
-            const docRef = doc(db, COLLECTION_NAME, docId);
-            await updateDoc(docRef, {
-                lastAccess: serverTimestamp(),
-                accessCount: increment(1)
-            });
-        }
-
-        function resolveEventUrl() {
-            let url = meetingConfig.eventUrl || 'evento.html';
-            if (url && !url.startsWith('http') && !url.endsWith('.html')) {
-                url = 'https://' + url;
-            }
-            return url;
-        }
-
-        function redirectToZoom() {
-            window.location.href = resolveEventUrl();
-        }
-
-        // Event Handlers
-        showReentryLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            step1.classList.add('hidden');
-            step1b.classList.remove('hidden');
-        });
-
-        backToStep1.addEventListener('click', () => {
-            step1b.classList.add('hidden');
-            step1.classList.remove('hidden');
-            hideMessage('step1b-message');
-        });
-
-        exitBtn.addEventListener('click', () => {
-            if (confirm('¿Estás seguro que deseas salir?')) {
-                window.location.href = 'https://durguez.com';
-            }
-        });
-
-        acceptPolicy.addEventListener('change', () => {
-            submitBtn.disabled = !acceptPolicy.checked;
-        });
-
-        // Code Verification Form
-        codeForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const verifyBtn = document.getElementById('verifyCodeBtn');
-            const codeInput = document.getElementById('leaderCode');
-            const code = codeInput.value;
-
-            hideMessage('step1-message');
-            setLoading(verifyBtn, true);
-
-            try {
-                const validCode = await validateLeaderCode(code);
-
-                if (!validCode) {
-                    showMessage('step1-message', '⚠️ Por favor ingresa un número para continuar.', 'error');
-                    codeInput.classList.add('error');
-                    setTimeout(() => codeInput.classList.remove('error'), 500);
-                    return;
-                }
-
-                // Always allow entry
-                document.getElementById('confirmedCode').value = validCode;
-
-                // Check if form should be skipped (no fields enabled)
-                if (shouldSkipForm()) {
-                    try {
-                        await createRegistration({
-                            leaderCode: validCode,
-                            acceptedPolicy: true,
-                            acceptedPolicyAt: new Date().toISOString()
-                        });
-                    } catch (regError) {
-                        console.warn('Registration write failed, redirecting anyway:', regError);
-                    }
-                    showMessage('step1-message', '✅ ¡Bienvenido! Redirigiendo al evento...', 'success');
-                    setTimeout(redirectToZoom, 1500);
-                } else {
-                    step1.classList.add('hidden');
-                    step2.classList.remove('hidden');
-                }
-
-            } catch (error) {
-                console.error('Error:', error);
-                showMessage('step1-message', '❌ Error al verificar. Intenta nuevamente.', 'error');
-            } finally {
-                setLoading(verifyBtn, false);
-            }
-        });
-
-        // Re-entry Form
-        reentryForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const reentryBtn = document.getElementById('reentryBtn');
-            const code = document.getElementById('reentryCode').value;
-            const cedula = document.getElementById('reentryCedula').value.trim();
-
-            hideMessage('step1b-message');
-            setLoading(reentryBtn, true);
-
-            try {
-                // Check if cedula exists
-                const existing = await checkExistingRegistration(cedula);
-
-                if (!existing.exists) {
-                    showMessage('step1b-message', '❌ No encontramos un registro con esa cédula. Por favor regístrate primero.', 'error');
-                    return;
-                }
-
-                // Update last access (non-blocking - don't let failure prevent entry)
-                try {
-                    await updateLastAccess(existing.id);
-                } catch (updateError) {
-                    console.warn('Failed to update access count, redirecting anyway:', updateError);
-                }
-                showMessage('step1b-message', '✅ ¡Bienvenido de nuevo! Redirigiendo al evento...', 'success');
-
-                setTimeout(redirectToZoom, 1500);
-
-            } catch (error) {
-                console.error('Error:', error);
-                showMessage('step1b-message', '❌ Error al procesar. Intenta nuevamente.', 'error');
-            } finally {
-                setLoading(reentryBtn, false);
-            }
-        });
-
-        // Registration Form
-        registrationForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            // Check policy only if it's visible
-            const policyVisible = document.querySelector('.checkbox-container').style.display !== 'none';
-            if (policyVisible && !acceptPolicy.checked) {
-                showMessage('step2-message', '⚠️ Debes aceptar la política de tratamiento de datos para continuar.', 'error');
+    <!-- Mobile menu -->
+    <div class="nav__mobile">
+        <a href="index.html" class="nav__mobile-link">Inicio</a>
+        <a href="pages/trayectoria.html" class="nav__mobile-link">Trayectoria</a>
+        <a href="pages/logros.html" class="nav__mobile-link">Logros</a>
+        <a href="pages/opinion.html" class="nav__mobile-link">Opinión</a>
+        <a href="pages/contacto.html" class="nav__mobile-link">Contacto</a>
+    </div>
+    <div class="nav__overlay"></div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+    <div class="container">
+        <div class="hero__grid">
+            <div class="hero__content">
+                <span class="hero__label">Pereira, Risaralda</span>
+                <h1 class="hero__title">Julián Andrés<br>Ospina Posada</h1>
+                <p class="hero__subtitle">Abogado especialista en Derecho Administrativo. Más de 6 años al servicio de Pereira desde el Concejo Municipal y precandidato a la Gobernación de Risaralda, trabajando por el progreso y el bienestar de nuestra región.</p>
+                <div class="hero__actions">
+                    <a href="pages/trayectoria.html" class="btn btn--primary btn--lg">Conocer trayectoria</a>
+                    <a href="pages/contacto.html" class="btn btn--outline-light btn--lg">Contacto</a>
+                </div>
+            </div>
+            <div class="hero__portrait">
+                <img src="assets/img/julian-ospina-portrait.jpeg" alt="Julián Andrés Ospina Posada" class="hero__portrait-img" width="480" height="480" loading="eager">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== INTRO ========== -->
+<section class="section section--alt">
+    <div class="container">
+        <div class="intro fade-in">
+            <img src="assets/img/julian-ospina-portrait.jpeg" alt="Julián Ospina Posada" class="intro__image" loading="lazy" width="400" height="533">
+            <div class="intro__text">
+                <span class="section-label">Sobre Julián</span>
+                <h2 class="section-title">Un abogado al servicio de Pereira y Risaralda</h2>
+                <p>Julián Andrés Ospina Posada es abogado de profesión con especialización en Derecho Administrativo. Durante más de 6 años como concejal de Pereira, lideró iniciativas transformadoras en infraestructura, cultura, seguridad y desarrollo social.</p>
+                <p style="margin-top: var(--space-md);">Como presidente del Concejo en 2015, fortaleció la transparencia institucional y promovió el debate abierto como herramienta fundamental de la democracia local.</p>
+                <p style="margin-top: var(--space-md);">En 2019, fue precandidato a la Gobernación de Risaralda por el Centro Democrático, demostrando su compromiso con el liderazgo regional. Ha sido un actor clave en la política risaraldense, impulsando proyectos como la modernización del Aeropuerto Internacional Matecaña y el Bioparque Ukumarí.</p>
+                <blockquote class="intro__quote">
+                    "El servicio público no es un privilegio, es una responsabilidad con cada ciudadano."
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== RESULTADOS EN CIFRAS ========== -->
+<section class="section">
+    <div class="container text-center">
+        <span class="section-label">Resultados</span>
+        <h2 class="section-title mx-auto" style="max-width: 500px;">Cifras que hablan por sí solas</h2>
+
+        <div class="grid grid--4 stagger" style="margin-top: var(--space-2xl);">
+            <div class="stat-card">
+                <div class="stat-card__number">6.5</div>
+                <div class="stat-card__label">Años en el Concejo</div>
+                <div class="stat-card__desc">Servicio continuo a Pereira</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card__number">2015</div>
+                <div class="stat-card__label">Presidente del Concejo</div>
+                <div class="stat-card__desc">Liderazgo institucional</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card__number">15+</div>
+                <div class="stat-card__label">Proyectos de Acuerdo</div>
+                <div class="stat-card__desc">Aprobados exitosamente</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card__number">100%</div>
+                <div class="stat-card__label">Compromiso Regional</div>
+                <div class="stat-card__desc">Liderazgo en Risaralda</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== LOGROS DESTACADOS ========== -->
+<section class="section section--alt">
+    <div class="container">
+        <div class="text-center fade-in">
+            <span class="section-label">Gestión</span>
+            <h2 class="section-title mx-auto" style="max-width: 600px;">Logros que transformaron a Pereira</h2>
+            <p class="section-subtitle mx-auto">Proyectos concretos que impactaron la vida de los pereiranos.</p>
+        </div>
+
+        <div class="grid grid--3" style="margin-top: var(--space-2xl);">
+            <div class="card fade-in">
+                <div class="card__image img-placeholder" style="aspect-ratio: 16/10;">
+                    <!-- Placeholder -->
+                </div>
+                <div class="card__body">
+                    <span class="card__category">Infraestructura</span>
+                    <h3 class="card__title">Megaobras viales</h3>
+                    <p class="card__text">Impulso decisivo a las megaobras que transformaron la movilidad y conectividad de Pereira con el Eje Cafetero.</p>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card__image img-placeholder" style="aspect-ratio: 16/10;">
+                    <!-- Placeholder -->
+                </div>
+                <div class="card__body">
+                    <span class="card__category">Cultura</span>
+                    <h3 class="card__title">Secretaría de Cultura</h3>
+                    <p class="card__text">Promoción y apoyo a la creación de la Secretaría de Cultura como entidad independiente para fortalecer la identidad regional.</p>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <div class="card__image img-placeholder" style="aspect-ratio: 16/10;">
+                    <!-- Placeholder -->
+                </div>
+                <div class="card__body">
+                    <span class="card__category">Social</span>
+                    <h3 class="card__title">Programas sociales</h3>
+                    <p class="card__text">Gestión de programas de vivienda digna e inclusión social para las comunidades más vulnerables del municipio.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center" style="margin-top: var(--space-2xl);">
+            <a href="pages/logros.html" class="btn btn--outline">Ver todos los logros</a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== BLOG RECIENTE ========== -->
+<section class="section" id="blog">
+    <div class="container">
+        <div class="flex-between flex-wrap gap-lg fade-in">
+            <div>
+                <span class="section-label">Opinión</span>
+                <h2 class="section-title">Artículos recientes</h2>
+            </div>
+            <a href="pages/opinion.html" class="btn btn--outline btn--sm">Ver todos</a>
+        </div>
+
+        <div class="grid grid--3" id="recent-posts" style="margin-top: var(--space-2xl);">
+            <!-- Cargado dinámicamente desde blog/posts.json -->
+        </div>
+
+        <noscript>
+            <div style="text-align: center; padding: var(--space-2xl) 0; color: var(--color-text-secondary);">
+                <p>Activa JavaScript para ver los artículos recientes.</p>
+                <a href="pages/opinion.html" class="btn btn--outline" style="margin-top: var(--space-md);">Ir al blog</a>
+            </div>
+        </noscript>
+    </div>
+</section>
+
+<!-- ========== NEWSLETTER ========== -->
+<section class="section">
+    <div class="container">
+        <div class="newsletter fade-in">
+            <h2 class="newsletter__title">Mantente informado</h2>
+            <p class="newsletter__subtitle">Recibe artículos de opinión y noticias sobre la gestión pública en Pereira directamente en tu correo.</p>
+            <form class="newsletter__form" id="newsletter-form" action="https://formspree.io/f/FORMSPREE_ID" method="POST">
+                <input type="email" name="email" class="newsletter__input" placeholder="Tu correo electrónico" required aria-label="Correo electrónico">
+                <input type="hidden" name="_subject" value="Nueva suscripción al newsletter">
+                <button type="submit" class="btn btn--primary">Suscribirme</button>
+            </form>
+            <div class="newsletter__msg" id="newsletter-msg"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer__top">
+            <div>
+                <div class="footer__brand-name">Julián Ospina Posada</div>
+                <p class="footer__brand-desc">Abogado especialista en Derecho Administrativo. Servidor público comprometido con el desarrollo de Pereira y Risaralda.</p>
+            </div>
+            <div>
+                <div class="footer__heading">Navegación</div>
+                <a href="index.html" class="footer__link">Inicio</a>
+                <a href="pages/trayectoria.html" class="footer__link">Trayectoria</a>
+                <a href="pages/logros.html" class="footer__link">Logros</a>
+                <a href="pages/opinion.html" class="footer__link">Opinión</a>
+                <a href="pages/contacto.html" class="footer__link">Contacto</a>
+            </div>
+            <div>
+                <div class="footer__heading">Redes sociales</div>
+                <div class="footer__social">
+                    <a href="https://www.facebook.com/julianospinaposada" target="_blank" rel="noopener" class="footer__social-link" aria-label="Facebook">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/julianospinaposada" target="_blank" rel="noopener" class="footer__social-link" aria-label="Instagram">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <a href="https://x.com/julianospinapos" target="_blank" rel="noopener" class="footer__social-link" aria-label="X (Twitter)">
+                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
+                <a href="pages/contacto.html" class="footer__link" style="margin-top: var(--space-md);">Contacto</a>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>Pereira, Risaralda — Colombia</span>
+            <span>&copy; 2026 Julián Ospina Posada. Todos los derechos reservados.</span>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/573001234567" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/newsletter.js"></script>
+<script>
+// Load recent blog posts
+(function() {
+    const container = document.getElementById('recent-posts');
+    if (!container) return;
+
+    fetch('blog/posts.json')
+        .then(r => r.json())
+        .then(posts => {
+            const recent = posts.slice(0, 3);
+            if (recent.length === 0) {
+                container.innerHTML = '<p class="text-center" style="grid-column: 1/-1; color: var(--color-text-light);">Próximamente: artículos de opinión.</p>';
                 return;
             }
-
-            setLoading(submitBtn, true);
-            hideMessage('step2-message');
-
-            // Build form data based on enabled fields
-            const formData = {
-                leaderCode: document.getElementById('confirmedCode').value,
-                acceptedPolicy: true,
-                acceptedPolicyAt: new Date().toISOString()
-            };
-
-            // Only add fields that are enabled
-            if (formConfig.nombreCompleto) {
-                formData.nombreCompleto = document.getElementById('nombreCompleto').value.trim();
-            }
-            if (formConfig.cedula) {
-                formData.cedula = document.getElementById('cedula').value.trim();
-            }
-            if (formConfig.telefono) {
-                formData.telefono = document.getElementById('telefono').value.trim();
-            }
-            if (formConfig.email) {
-                formData.email = document.getElementById('email').value.trim();
-            }
-
-            try {
-                // Check if cedula already exists (only if cedula field is enabled)
-                if (formConfig.cedula && formData.cedula) {
-                    const existing = await checkExistingRegistration(formData.cedula);
-
-                    if (existing.exists) {
-                        showMessage('step2-message', '⚠️ Ya existe un registro con esta cédula. Usa la opción de re-ingreso.', 'info');
-                        setLoading(submitBtn, false);
-                        return;
-                    }
-                }
-
-                // Create new registration (non-blocking - don't let failure prevent entry)
-                try {
-                    await createRegistration(formData);
-                } catch (regError) {
-                    console.warn('Registration write failed, redirecting anyway:', regError);
-                }
-
-                showMessage('step2-message', '✅ ¡Registro exitoso! Redirigiendo al evento...', 'success');
-
-                setTimeout(redirectToZoom, 1500);
-
-            } catch (error) {
-                console.error('Error:', error);
-                showMessage('step2-message', '❌ Error al registrar. Por favor intenta nuevamente.', 'error');
-            } finally {
-                setLoading(submitBtn, false);
-            }
+            container.innerHTML = recent.map(post => `
+                <a href="${post.url}" class="card fade-in visible" style="text-decoration: none; color: inherit;">
+                    <div class="card__image img-placeholder" style="aspect-ratio: 16/10;"></div>
+                    <div class="card__body">
+                        <span class="card__category">${post.category}</span>
+                        <h3 class="card__title">${post.title}</h3>
+                        <p class="card__text">${post.excerpt}</p>
+                        <div class="card__meta">
+                            <span>${new Date(post.date).toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                            <span>${post.readTime || '5 min'} de lectura</span>
+                        </div>
+                    </div>
+                </a>
+            `).join('');
+        })
+        .catch(() => {
+            container.innerHTML = '<p class="text-center" style="grid-column: 1/-1; color: var(--color-text-light);">Próximamente: artículos de opinión.</p>';
         });
-
-        // Format code input - strip extra spaces
-        document.getElementById('leaderCode').addEventListener('input', function(e) {
-            this.value = this.value.trim();
-        });
-    </script>
+})();
+</script>
 </body>
 </html>
